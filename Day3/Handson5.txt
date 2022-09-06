@@ -1,0 +1,2288 @@
+mysql> USE pubs;
+Database changed
+mysql> SELECT * FROM titles;
++----------+-----------------------------------------------------------------+--------------+--------+---------+------------+---------+-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+
+| title_id | title                                                           | type         | pub_id | price   | advance    | royalty | ytd_sales | notes                                                                                                                                                                               | pubdate    |
++----------+-----------------------------------------------------------------+--------------+--------+---------+------------+---------+-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+
+| BU1032   | The Busy Executive's Database Guide                             | business     | 1389   | 19.9900 |  5000.0000 |      10 |      4095 | An overview of available database systems with emphasis on common business applications. Illustrated.                                                                               | 1991-06-12 |
+| BU1111   | Cooking with Computers: Surreptitious Balance Sheets            | business     | 1389   | 11.9500 |  5000.0000 |      10 |      3876 | Helpful hints on how to use your electronic resources to the best advantage.                                                                                                        | 1991-06-09 |
+| BU2075   | You Can Combat Computer Stress!                                 | business     | 0736   |  2.9900 | 10125.0000 |      24 |     18722 | The latest medical and psychological techniques for living with the electronic office. Easy-to-understand explanations.                                                             | 1991-06-30 |
+| BU7832   | Straight Talk About Computers                                   | business     | 1389   | 19.9900 |  5000.0000 |      10 |      4095 | Annotated analysis of what computers can do for you: a no-hype guide for the critical user.                                                                                         | 1991-06-22 |
+| MC2222   | Silicon Valley Gastronomic Treats                               | mod_cook     | 0877   | 19.9900 |     0.0000 |      12 |      2032 | Favorite recipes for quick, easy, and elegant meals.                                                                                                                                | 1991-06-09 |
+| MC3021   | The Gourmet Microwave                                           | mod_cook     | 0877   |  2.9900 | 15000.0000 |      24 |     22246 | Traditional French gourmet recipes adapted for modern microwave cooking.                                                                                                            | 1991-06-18 |
+| MC3026   | The Psychology of Computer Cooking                              | UNDECIDED    | 0877   |    NULL |       NULL |    NULL |      NULL | NULL                                                                                                                                                                                | NULL       |
+| PC1035   | But Is It User Friendly?                                        | popular_comp | 1389   | 22.9500 |  7000.0000 |      16 |      8780 | A survey of software for the naive user, focusing on the 'friendliness' of each.                                                                                                    | 1991-06-30 |
+| PC8888   | Secrets of Silicon Valley                                       | popular_comp | 1389   | 20.0000 |  8000.0000 |      10 |      4095 | Muckraking reporting on the world's largest computer hardware and software manufacturers.                                                                                           | 1994-06-12 |
+| PC9999   | Net Etiquette                                                   | popular_comp | 1389   |    NULL |       NULL |    NULL |      NULL | A must-read for computer conferencing.                                                                                                                                              | NULL       |
+| PS1372   | Computer Phobic AND Non-Phobic Individuals: Behavior Variations | psychology   | 0877   | 21.5900 |  7000.0000 |      10 |       375 | A must for the specialist, this book examines the difference between those who hate and fear computers and those who don't.                                                         | 1991-10-21 |
+| PS2091   | Is Anger the Enemy?                                             | psychology   | 0736   | 10.9500 |  2275.0000 |      12 |      2045 | Carefully researched study of the effects of strong emotions on the body. Metabolic charts included.                                                                                | 1991-06-15 |
+| PS2106   | Life Without Fear                                               | psychology   | 0736   |  7.0000 |  6000.0000 |      10 |       111 | New exercise, meditation, and nutritional techniques that can reduce the shock of daily interactions. Popular audience. Sample menus included, exercise video available separately. | 1991-10-05 |
+| PS3333   | Prolonged Data Deprivation: Four Case Studies                   | psychology   | 0736   | 19.9900 |  2000.0000 |      10 |      4072 | What happens when the data runs dry?  Searching evaluations of information-shortage effects.                                                                                        | 1991-06-12 |
+| PS7777   | Emotional Security: A New Algorithm                             | psychology   | 0736   |  7.9900 |  4000.0000 |      10 |      3336 | Protecting yourself and your loved ones from undue emotional stress in the modern world. Use of computer and nutritional aids emphasized.                                           | 1991-06-12 |
+| TC3218   | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | trad_cook    | 0877   | 20.9500 |  7000.0000 |      10 |       375 | Profusely illustrated in color, this makes a wonderful gift book for a cuisine-oriented friend.                                                                                     | 1991-10-21 |
+| TC4203   | Fifty Years in Buckingham Palace Kitchens                       | trad_cook    | 0877   | 11.9500 |  4000.0000 |      14 |     15096 | More anecdotes from the Queen's favorite cook describing life among English royalty. Recipes, techniques, tender vignettes.                                                         | 1991-06-12 |
+| TC7777   | Sushi, Anyone?                                                  | trad_cook    | 0877   | 14.9900 |  8000.0000 |      10 |      4095 | Detailed instructions on how to make authentic Japanese sushi in your spare time.                                                                                                   | 1991-06-12 |
++----------+-----------------------------------------------------------------+--------------+--------+---------+------------+---------+-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+
+18 rows in set (0.00 sec)
+
+mysql> SELECT * FROM titleauthor
+    -> ;
++-------------+----------+--------+------------+
+| au_id       | title_id | au_ord | royaltyper |
++-------------+----------+--------+------------+
+| 409-56-7008 | BU1032   |      1 |         60 |
+| 486-29-1786 | PS7777   |      1 |        100 |
+| 486-29-1786 | PC9999   |      1 |        100 |
+| 712-45-1867 | MC2222   |      1 |        100 |
+| 172-32-1176 | PS3333   |      1 |        100 |
+| 213-46-8915 | BU1032   |      2 |         40 |
+| 238-95-7766 | PC1035   |      1 |        100 |
+| 213-46-8915 | BU2075   |      1 |        100 |
+| 998-72-3567 | PS2091   |      1 |         50 |
+| 899-46-2035 | PS2091   |      2 |         50 |
+| 998-72-3567 | PS2106   |      1 |        100 |
+| 722-51-5454 | MC3021   |      1 |         75 |
+| 899-46-2035 | MC3021   |      2 |         25 |
+| 807-91-6654 | TC3218   |      1 |        100 |
+| 274-80-9391 | BU7832   |      1 |        100 |
+| 427-17-2319 | PC8888   |      1 |         50 |
+| 846-92-7186 | PC8888   |      2 |         50 |
+| 756-30-7391 | PS1372   |      1 |         75 |
+| 724-80-9391 | PS1372   |      2 |         25 |
+| 724-80-9391 | BU1111   |      1 |         60 |
+| 267-41-2394 | BU1111   |      2 |         40 |
+| 672-71-3249 | TC7777   |      1 |         40 |
+| 267-41-2394 | TC7777   |      2 |         30 |
+| 472-27-2349 | TC7777   |      3 |         30 |
+| 648-92-1872 | TC4203   |      1 |        100 |
++-------------+----------+--------+------------+
+25 rows in set (0.01 sec)
+
+mysql> SELECT * FROM authors;
++-------------+----------------+-------------+--------------+----------------------+----------------+-------+-------+----------+
+| au_id       | au_lname       | au_fname    | phone        | address              | city           | state | zip   | contract |
++-------------+----------------+-------------+--------------+----------------------+----------------+-------+-------+----------+
+| 172-32-1176 | White          | Johnson     | 408 496-7223 | 10932 Bigge Rd.      | Menlo Park     | CA    | 94025 |        1 |
+| 213-46-8915 | Green          | Marjorie    | 415 986-7020 | 309 63rd St. #411    | Oakland        | CA    | 94618 |        1 |
+| 238-95-7766 | Carson         | Cheryl      | 415 548-7723 | 589 Darwin Ln.       | Berkeley       | CA    | 94705 |        1 |
+| 267-41-2394 | O'Leary        | Michael     | 408 286-2428 | 22 Cleveland Av. #14 | San Jose       | CA    | 95128 |        1 |
+| 274-80-9391 | Straight       | Dean        | 415 834-2919 | 5420 College Av.     | Oakland        | CA    | 94609 |        1 |
+| 341-22-1782 | Smith          | Meander     | 913 843-0462 | 10 Mississippi Dr.   | Lawrence       | KS    | 66044 |        0 |
+| 409-56-7008 | Bennet         | Abraham     | 415 658-9932 | 6223 Bateman St.     | Berkeley       | CA    | 94705 |        1 |
+| 427-17-2319 | Dull           | Ann         | 415 836-7128 | 3410 Blonde St.      | Palo Alto      | CA    | 94301 |        1 |
+| 472-27-2349 | Gringlesby     | Burt        | 707 938-6445 | PO Box 792           | Covelo         | CA    | 95428 |        3 |
+| 486-29-1786 | Locksley       | Charlene    | 415 585-4620 | 18 Broadway Av.      | San Francisco  | CA    | 94130 |        1 |
+| 527-72-3246 | Greene         | Morningstar | 615 297-2723 | 22 Graybar House Rd. | Nashville      | TN    | 37215 |        0 |
+| 648-92-1872 | Blotchet-Halls | Reginald    | 503 745-6402 | 55 Hillsdale Bl.     | Corvallis      | OR    | 97330 |        1 |
+| 672-71-3249 | Yokomoto       | Akiko       | 415 935-4228 | 3 Silver Ct.         | Walnut Creek   | CA    | 94595 |        1 |
+| 712-45-1867 | del Castillo   | Innes       | 615 996-8275 | 2286 Cram Pl. #86    | Ann Arbor      | MI    | 48105 |        1 |
+| 722-51-5454 | DeFrance       | Michel      | 219 547-9982 | 3 Balding Pl.        | Gary           | IN    | 46403 |        1 |
+| 724-08-9931 | Stringer       | Dirk        | 415 843-2991 | 5420 Telegraph Av.   | Oakland        | CA    | 94609 |        0 |
+| 724-80-9391 | MacFeather     | Stearns     | 415 354-7128 | 44 Upland Hts.       | Oakland        | CA    | 94612 |        1 |
+| 756-30-7391 | Karsen         | Livia       | 415 534-9219 | 5720 McAuley St.     | Oakland        | CA    | 94609 |        1 |
+| 807-91-6654 | Panteley       | Sylvia      | 301 946-8853 | 1956 Arlington Pl.   | Rockville      | MD    | 20853 |        1 |
+| 846-92-7186 | Hunter         | Sheryl      | 415 836-7128 | 3410 Blonde St.      | Palo Alto      | CA    | 94301 |        1 |
+| 893-72-1158 | McBadden       | Heather     | 707 448-4982 | 301 Putnam           | Vacaville      | CA    | 95688 |        0 |
+| 899-46-2035 | Ringer         | Anne        | 801 826-0752 | 67 Seventh Av.       | Salt Lake City | UT    | 84152 |        1 |
+| 998-72-3567 | Ringer         | Albert      | 801 826-0752 | 67 Seventh Av.       | Salt Lake City | UT    | 84152 |        1 |
++-------------+----------------+-------------+--------------+----------------------+----------------+-------+-------+----------+
+23 rows in set (0.00 sec)
+
+mysql> SELECT a.au_lname, t.title FROM authors a, titles t;
++----------------+-----------------------------------------------------------------+
+| au_lname       | title                                                           |
++----------------+-----------------------------------------------------------------+
+| White          | Sushi, Anyone?                                                  |
+| White          | Fifty Years in Buckingham Palace Kitchens                       |
+| White          | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| White          | Emotional Security: A New Algorithm                             |
+| White          | Prolonged Data Deprivation: Four Case Studies                   |
+| White          | Life Without Fear                                               |
+| White          | Is Anger the Enemy?                                             |
+| White          | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| White          | Net Etiquette                                                   |
+| White          | Secrets of Silicon Valley                                       |
+| White          | But Is It User Friendly?                                        |
+| White          | The Psychology of Computer Cooking                              |
+| White          | The Gourmet Microwave                                           |
+| White          | Silicon Valley Gastronomic Treats                               |
+| White          | Straight Talk About Computers                                   |
+| White          | You Can Combat Computer Stress!                                 |
+| White          | Cooking with Computers: Surreptitious Balance Sheets            |
+| White          | The Busy Executive's Database Guide                             |
+| Green          | Sushi, Anyone?                                                  |
+| Green          | Fifty Years in Buckingham Palace Kitchens                       |
+| Green          | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| Green          | Emotional Security: A New Algorithm                             |
+| Green          | Prolonged Data Deprivation: Four Case Studies                   |
+| Green          | Life Without Fear                                               |
+| Green          | Is Anger the Enemy?                                             |
+| Green          | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| Green          | Net Etiquette                                                   |
+| Green          | Secrets of Silicon Valley                                       |
+| Green          | But Is It User Friendly?                                        |
+| Green          | The Psychology of Computer Cooking                              |
+| Green          | The Gourmet Microwave                                           |
+| Green          | Silicon Valley Gastronomic Treats                               |
+| Green          | Straight Talk About Computers                                   |
+| Green          | You Can Combat Computer Stress!                                 |
+| Green          | Cooking with Computers: Surreptitious Balance Sheets            |
+| Green          | The Busy Executive's Database Guide                             |
+| Carson         | Sushi, Anyone?                                                  |
+| Carson         | Fifty Years in Buckingham Palace Kitchens                       |
+| Carson         | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| Carson         | Emotional Security: A New Algorithm                             |
+| Carson         | Prolonged Data Deprivation: Four Case Studies                   |
+| Carson         | Life Without Fear                                               |
+| Carson         | Is Anger the Enemy?                                             |
+| Carson         | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| Carson         | Net Etiquette                                                   |
+| Carson         | Secrets of Silicon Valley                                       |
+| Carson         | But Is It User Friendly?                                        |
+| Carson         | The Psychology of Computer Cooking                              |
+| Carson         | The Gourmet Microwave                                           |
+| Carson         | Silicon Valley Gastronomic Treats                               |
+| Carson         | Straight Talk About Computers                                   |
+| Carson         | You Can Combat Computer Stress!                                 |
+| Carson         | Cooking with Computers: Surreptitious Balance Sheets            |
+| Carson         | The Busy Executive's Database Guide                             |
+| O'Leary        | Sushi, Anyone?                                                  |
+| O'Leary        | Fifty Years in Buckingham Palace Kitchens                       |
+| O'Leary        | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| O'Leary        | Emotional Security: A New Algorithm                             |
+| O'Leary        | Prolonged Data Deprivation: Four Case Studies                   |
+| O'Leary        | Life Without Fear                                               |
+| O'Leary        | Is Anger the Enemy?                                             |
+| O'Leary        | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| O'Leary        | Net Etiquette                                                   |
+| O'Leary        | Secrets of Silicon Valley                                       |
+| O'Leary        | But Is It User Friendly?                                        |
+| O'Leary        | The Psychology of Computer Cooking                              |
+| O'Leary        | The Gourmet Microwave                                           |
+| O'Leary        | Silicon Valley Gastronomic Treats                               |
+| O'Leary        | Straight Talk About Computers                                   |
+| O'Leary        | You Can Combat Computer Stress!                                 |
+| O'Leary        | Cooking with Computers: Surreptitious Balance Sheets            |
+| O'Leary        | The Busy Executive's Database Guide                             |
+| Straight       | Sushi, Anyone?                                                  |
+| Straight       | Fifty Years in Buckingham Palace Kitchens                       |
+| Straight       | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| Straight       | Emotional Security: A New Algorithm                             |
+| Straight       | Prolonged Data Deprivation: Four Case Studies                   |
+| Straight       | Life Without Fear                                               |
+| Straight       | Is Anger the Enemy?                                             |
+| Straight       | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| Straight       | Net Etiquette                                                   |
+| Straight       | Secrets of Silicon Valley                                       |
+| Straight       | But Is It User Friendly?                                        |
+| Straight       | The Psychology of Computer Cooking                              |
+| Straight       | The Gourmet Microwave                                           |
+| Straight       | Silicon Valley Gastronomic Treats                               |
+| Straight       | Straight Talk About Computers                                   |
+| Straight       | You Can Combat Computer Stress!                                 |
+| Straight       | Cooking with Computers: Surreptitious Balance Sheets            |
+| Straight       | The Busy Executive's Database Guide                             |
+| Smith          | Sushi, Anyone?                                                  |
+| Smith          | Fifty Years in Buckingham Palace Kitchens                       |
+| Smith          | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| Smith          | Emotional Security: A New Algorithm                             |
+| Smith          | Prolonged Data Deprivation: Four Case Studies                   |
+| Smith          | Life Without Fear                                               |
+| Smith          | Is Anger the Enemy?                                             |
+| Smith          | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| Smith          | Net Etiquette                                                   |
+| Smith          | Secrets of Silicon Valley                                       |
+| Smith          | But Is It User Friendly?                                        |
+| Smith          | The Psychology of Computer Cooking                              |
+| Smith          | The Gourmet Microwave                                           |
+| Smith          | Silicon Valley Gastronomic Treats                               |
+| Smith          | Straight Talk About Computers                                   |
+| Smith          | You Can Combat Computer Stress!                                 |
+| Smith          | Cooking with Computers: Surreptitious Balance Sheets            |
+| Smith          | The Busy Executive's Database Guide                             |
+| Bennet         | Sushi, Anyone?                                                  |
+| Bennet         | Fifty Years in Buckingham Palace Kitchens                       |
+| Bennet         | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| Bennet         | Emotional Security: A New Algorithm                             |
+| Bennet         | Prolonged Data Deprivation: Four Case Studies                   |
+| Bennet         | Life Without Fear                                               |
+| Bennet         | Is Anger the Enemy?                                             |
+| Bennet         | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| Bennet         | Net Etiquette                                                   |
+| Bennet         | Secrets of Silicon Valley                                       |
+| Bennet         | But Is It User Friendly?                                        |
+| Bennet         | The Psychology of Computer Cooking                              |
+| Bennet         | The Gourmet Microwave                                           |
+| Bennet         | Silicon Valley Gastronomic Treats                               |
+| Bennet         | Straight Talk About Computers                                   |
+| Bennet         | You Can Combat Computer Stress!                                 |
+| Bennet         | Cooking with Computers: Surreptitious Balance Sheets            |
+| Bennet         | The Busy Executive's Database Guide                             |
+| Dull           | Sushi, Anyone?                                                  |
+| Dull           | Fifty Years in Buckingham Palace Kitchens                       |
+| Dull           | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| Dull           | Emotional Security: A New Algorithm                             |
+| Dull           | Prolonged Data Deprivation: Four Case Studies                   |
+| Dull           | Life Without Fear                                               |
+| Dull           | Is Anger the Enemy?                                             |
+| Dull           | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| Dull           | Net Etiquette                                                   |
+| Dull           | Secrets of Silicon Valley                                       |
+| Dull           | But Is It User Friendly?                                        |
+| Dull           | The Psychology of Computer Cooking                              |
+| Dull           | The Gourmet Microwave                                           |
+| Dull           | Silicon Valley Gastronomic Treats                               |
+| Dull           | Straight Talk About Computers                                   |
+| Dull           | You Can Combat Computer Stress!                                 |
+| Dull           | Cooking with Computers: Surreptitious Balance Sheets            |
+| Dull           | The Busy Executive's Database Guide                             |
+| Gringlesby     | Sushi, Anyone?                                                  |
+| Gringlesby     | Fifty Years in Buckingham Palace Kitchens                       |
+| Gringlesby     | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| Gringlesby     | Emotional Security: A New Algorithm                             |
+| Gringlesby     | Prolonged Data Deprivation: Four Case Studies                   |
+| Gringlesby     | Life Without Fear                                               |
+| Gringlesby     | Is Anger the Enemy?                                             |
+| Gringlesby     | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| Gringlesby     | Net Etiquette                                                   |
+| Gringlesby     | Secrets of Silicon Valley                                       |
+| Gringlesby     | But Is It User Friendly?                                        |
+| Gringlesby     | The Psychology of Computer Cooking                              |
+| Gringlesby     | The Gourmet Microwave                                           |
+| Gringlesby     | Silicon Valley Gastronomic Treats                               |
+| Gringlesby     | Straight Talk About Computers                                   |
+| Gringlesby     | You Can Combat Computer Stress!                                 |
+| Gringlesby     | Cooking with Computers: Surreptitious Balance Sheets            |
+| Gringlesby     | The Busy Executive's Database Guide                             |
+| Locksley       | Sushi, Anyone?                                                  |
+| Locksley       | Fifty Years in Buckingham Palace Kitchens                       |
+| Locksley       | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| Locksley       | Emotional Security: A New Algorithm                             |
+| Locksley       | Prolonged Data Deprivation: Four Case Studies                   |
+| Locksley       | Life Without Fear                                               |
+| Locksley       | Is Anger the Enemy?                                             |
+| Locksley       | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| Locksley       | Net Etiquette                                                   |
+| Locksley       | Secrets of Silicon Valley                                       |
+| Locksley       | But Is It User Friendly?                                        |
+| Locksley       | The Psychology of Computer Cooking                              |
+| Locksley       | The Gourmet Microwave                                           |
+| Locksley       | Silicon Valley Gastronomic Treats                               |
+| Locksley       | Straight Talk About Computers                                   |
+| Locksley       | You Can Combat Computer Stress!                                 |
+| Locksley       | Cooking with Computers: Surreptitious Balance Sheets            |
+| Locksley       | The Busy Executive's Database Guide                             |
+| Greene         | Sushi, Anyone?                                                  |
+| Greene         | Fifty Years in Buckingham Palace Kitchens                       |
+| Greene         | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| Greene         | Emotional Security: A New Algorithm                             |
+| Greene         | Prolonged Data Deprivation: Four Case Studies                   |
+| Greene         | Life Without Fear                                               |
+| Greene         | Is Anger the Enemy?                                             |
+| Greene         | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| Greene         | Net Etiquette                                                   |
+| Greene         | Secrets of Silicon Valley                                       |
+| Greene         | But Is It User Friendly?                                        |
+| Greene         | The Psychology of Computer Cooking                              |
+| Greene         | The Gourmet Microwave                                           |
+| Greene         | Silicon Valley Gastronomic Treats                               |
+| Greene         | Straight Talk About Computers                                   |
+| Greene         | You Can Combat Computer Stress!                                 |
+| Greene         | Cooking with Computers: Surreptitious Balance Sheets            |
+| Greene         | The Busy Executive's Database Guide                             |
+| Blotchet-Halls | Sushi, Anyone?                                                  |
+| Blotchet-Halls | Fifty Years in Buckingham Palace Kitchens                       |
+| Blotchet-Halls | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| Blotchet-Halls | Emotional Security: A New Algorithm                             |
+| Blotchet-Halls | Prolonged Data Deprivation: Four Case Studies                   |
+| Blotchet-Halls | Life Without Fear                                               |
+| Blotchet-Halls | Is Anger the Enemy?                                             |
+| Blotchet-Halls | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| Blotchet-Halls | Net Etiquette                                                   |
+| Blotchet-Halls | Secrets of Silicon Valley                                       |
+| Blotchet-Halls | But Is It User Friendly?                                        |
+| Blotchet-Halls | The Psychology of Computer Cooking                              |
+| Blotchet-Halls | The Gourmet Microwave                                           |
+| Blotchet-Halls | Silicon Valley Gastronomic Treats                               |
+| Blotchet-Halls | Straight Talk About Computers                                   |
+| Blotchet-Halls | You Can Combat Computer Stress!                                 |
+| Blotchet-Halls | Cooking with Computers: Surreptitious Balance Sheets            |
+| Blotchet-Halls | The Busy Executive's Database Guide                             |
+| Yokomoto       | Sushi, Anyone?                                                  |
+| Yokomoto       | Fifty Years in Buckingham Palace Kitchens                       |
+| Yokomoto       | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| Yokomoto       | Emotional Security: A New Algorithm                             |
+| Yokomoto       | Prolonged Data Deprivation: Four Case Studies                   |
+| Yokomoto       | Life Without Fear                                               |
+| Yokomoto       | Is Anger the Enemy?                                             |
+| Yokomoto       | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| Yokomoto       | Net Etiquette                                                   |
+| Yokomoto       | Secrets of Silicon Valley                                       |
+| Yokomoto       | But Is It User Friendly?                                        |
+| Yokomoto       | The Psychology of Computer Cooking                              |
+| Yokomoto       | The Gourmet Microwave                                           |
+| Yokomoto       | Silicon Valley Gastronomic Treats                               |
+| Yokomoto       | Straight Talk About Computers                                   |
+| Yokomoto       | You Can Combat Computer Stress!                                 |
+| Yokomoto       | Cooking with Computers: Surreptitious Balance Sheets            |
+| Yokomoto       | The Busy Executive's Database Guide                             |
+| del Castillo   | Sushi, Anyone?                                                  |
+| del Castillo   | Fifty Years in Buckingham Palace Kitchens                       |
+| del Castillo   | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| del Castillo   | Emotional Security: A New Algorithm                             |
+| del Castillo   | Prolonged Data Deprivation: Four Case Studies                   |
+| del Castillo   | Life Without Fear                                               |
+| del Castillo   | Is Anger the Enemy?                                             |
+| del Castillo   | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| del Castillo   | Net Etiquette                                                   |
+| del Castillo   | Secrets of Silicon Valley                                       |
+| del Castillo   | But Is It User Friendly?                                        |
+| del Castillo   | The Psychology of Computer Cooking                              |
+| del Castillo   | The Gourmet Microwave                                           |
+| del Castillo   | Silicon Valley Gastronomic Treats                               |
+| del Castillo   | Straight Talk About Computers                                   |
+| del Castillo   | You Can Combat Computer Stress!                                 |
+| del Castillo   | Cooking with Computers: Surreptitious Balance Sheets            |
+| del Castillo   | The Busy Executive's Database Guide                             |
+| DeFrance       | Sushi, Anyone?                                                  |
+| DeFrance       | Fifty Years in Buckingham Palace Kitchens                       |
+| DeFrance       | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| DeFrance       | Emotional Security: A New Algorithm                             |
+| DeFrance       | Prolonged Data Deprivation: Four Case Studies                   |
+| DeFrance       | Life Without Fear                                               |
+| DeFrance       | Is Anger the Enemy?                                             |
+| DeFrance       | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| DeFrance       | Net Etiquette                                                   |
+| DeFrance       | Secrets of Silicon Valley                                       |
+| DeFrance       | But Is It User Friendly?                                        |
+| DeFrance       | The Psychology of Computer Cooking                              |
+| DeFrance       | The Gourmet Microwave                                           |
+| DeFrance       | Silicon Valley Gastronomic Treats                               |
+| DeFrance       | Straight Talk About Computers                                   |
+| DeFrance       | You Can Combat Computer Stress!                                 |
+| DeFrance       | Cooking with Computers: Surreptitious Balance Sheets            |
+| DeFrance       | The Busy Executive's Database Guide                             |
+| Stringer       | Sushi, Anyone?                                                  |
+| Stringer       | Fifty Years in Buckingham Palace Kitchens                       |
+| Stringer       | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| Stringer       | Emotional Security: A New Algorithm                             |
+| Stringer       | Prolonged Data Deprivation: Four Case Studies                   |
+| Stringer       | Life Without Fear                                               |
+| Stringer       | Is Anger the Enemy?                                             |
+| Stringer       | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| Stringer       | Net Etiquette                                                   |
+| Stringer       | Secrets of Silicon Valley                                       |
+| Stringer       | But Is It User Friendly?                                        |
+| Stringer       | The Psychology of Computer Cooking                              |
+| Stringer       | The Gourmet Microwave                                           |
+| Stringer       | Silicon Valley Gastronomic Treats                               |
+| Stringer       | Straight Talk About Computers                                   |
+| Stringer       | You Can Combat Computer Stress!                                 |
+| Stringer       | Cooking with Computers: Surreptitious Balance Sheets            |
+| Stringer       | The Busy Executive's Database Guide                             |
+| MacFeather     | Sushi, Anyone?                                                  |
+| MacFeather     | Fifty Years in Buckingham Palace Kitchens                       |
+| MacFeather     | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| MacFeather     | Emotional Security: A New Algorithm                             |
+| MacFeather     | Prolonged Data Deprivation: Four Case Studies                   |
+| MacFeather     | Life Without Fear                                               |
+| MacFeather     | Is Anger the Enemy?                                             |
+| MacFeather     | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| MacFeather     | Net Etiquette                                                   |
+| MacFeather     | Secrets of Silicon Valley                                       |
+| MacFeather     | But Is It User Friendly?                                        |
+| MacFeather     | The Psychology of Computer Cooking                              |
+| MacFeather     | The Gourmet Microwave                                           |
+| MacFeather     | Silicon Valley Gastronomic Treats                               |
+| MacFeather     | Straight Talk About Computers                                   |
+| MacFeather     | You Can Combat Computer Stress!                                 |
+| MacFeather     | Cooking with Computers: Surreptitious Balance Sheets            |
+| MacFeather     | The Busy Executive's Database Guide                             |
+| Karsen         | Sushi, Anyone?                                                  |
+| Karsen         | Fifty Years in Buckingham Palace Kitchens                       |
+| Karsen         | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| Karsen         | Emotional Security: A New Algorithm                             |
+| Karsen         | Prolonged Data Deprivation: Four Case Studies                   |
+| Karsen         | Life Without Fear                                               |
+| Karsen         | Is Anger the Enemy?                                             |
+| Karsen         | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| Karsen         | Net Etiquette                                                   |
+| Karsen         | Secrets of Silicon Valley                                       |
+| Karsen         | But Is It User Friendly?                                        |
+| Karsen         | The Psychology of Computer Cooking                              |
+| Karsen         | The Gourmet Microwave                                           |
+| Karsen         | Silicon Valley Gastronomic Treats                               |
+| Karsen         | Straight Talk About Computers                                   |
+| Karsen         | You Can Combat Computer Stress!                                 |
+| Karsen         | Cooking with Computers: Surreptitious Balance Sheets            |
+| Karsen         | The Busy Executive's Database Guide                             |
+| Panteley       | Sushi, Anyone?                                                  |
+| Panteley       | Fifty Years in Buckingham Palace Kitchens                       |
+| Panteley       | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| Panteley       | Emotional Security: A New Algorithm                             |
+| Panteley       | Prolonged Data Deprivation: Four Case Studies                   |
+| Panteley       | Life Without Fear                                               |
+| Panteley       | Is Anger the Enemy?                                             |
+| Panteley       | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| Panteley       | Net Etiquette                                                   |
+| Panteley       | Secrets of Silicon Valley                                       |
+| Panteley       | But Is It User Friendly?                                        |
+| Panteley       | The Psychology of Computer Cooking                              |
+| Panteley       | The Gourmet Microwave                                           |
+| Panteley       | Silicon Valley Gastronomic Treats                               |
+| Panteley       | Straight Talk About Computers                                   |
+| Panteley       | You Can Combat Computer Stress!                                 |
+| Panteley       | Cooking with Computers: Surreptitious Balance Sheets            |
+| Panteley       | The Busy Executive's Database Guide                             |
+| Hunter         | Sushi, Anyone?                                                  |
+| Hunter         | Fifty Years in Buckingham Palace Kitchens                       |
+| Hunter         | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| Hunter         | Emotional Security: A New Algorithm                             |
+| Hunter         | Prolonged Data Deprivation: Four Case Studies                   |
+| Hunter         | Life Without Fear                                               |
+| Hunter         | Is Anger the Enemy?                                             |
+| Hunter         | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| Hunter         | Net Etiquette                                                   |
+| Hunter         | Secrets of Silicon Valley                                       |
+| Hunter         | But Is It User Friendly?                                        |
+| Hunter         | The Psychology of Computer Cooking                              |
+| Hunter         | The Gourmet Microwave                                           |
+| Hunter         | Silicon Valley Gastronomic Treats                               |
+| Hunter         | Straight Talk About Computers                                   |
+| Hunter         | You Can Combat Computer Stress!                                 |
+| Hunter         | Cooking with Computers: Surreptitious Balance Sheets            |
+| Hunter         | The Busy Executive's Database Guide                             |
+| McBadden       | Sushi, Anyone?                                                  |
+| McBadden       | Fifty Years in Buckingham Palace Kitchens                       |
+| McBadden       | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| McBadden       | Emotional Security: A New Algorithm                             |
+| McBadden       | Prolonged Data Deprivation: Four Case Studies                   |
+| McBadden       | Life Without Fear                                               |
+| McBadden       | Is Anger the Enemy?                                             |
+| McBadden       | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| McBadden       | Net Etiquette                                                   |
+| McBadden       | Secrets of Silicon Valley                                       |
+| McBadden       | But Is It User Friendly?                                        |
+| McBadden       | The Psychology of Computer Cooking                              |
+| McBadden       | The Gourmet Microwave                                           |
+| McBadden       | Silicon Valley Gastronomic Treats                               |
+| McBadden       | Straight Talk About Computers                                   |
+| McBadden       | You Can Combat Computer Stress!                                 |
+| McBadden       | Cooking with Computers: Surreptitious Balance Sheets            |
+| McBadden       | The Busy Executive's Database Guide                             |
+| Ringer         | Sushi, Anyone?                                                  |
+| Ringer         | Fifty Years in Buckingham Palace Kitchens                       |
+| Ringer         | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| Ringer         | Emotional Security: A New Algorithm                             |
+| Ringer         | Prolonged Data Deprivation: Four Case Studies                   |
+| Ringer         | Life Without Fear                                               |
+| Ringer         | Is Anger the Enemy?                                             |
+| Ringer         | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| Ringer         | Net Etiquette                                                   |
+| Ringer         | Secrets of Silicon Valley                                       |
+| Ringer         | But Is It User Friendly?                                        |
+| Ringer         | The Psychology of Computer Cooking                              |
+| Ringer         | The Gourmet Microwave                                           |
+| Ringer         | Silicon Valley Gastronomic Treats                               |
+| Ringer         | Straight Talk About Computers                                   |
+| Ringer         | You Can Combat Computer Stress!                                 |
+| Ringer         | Cooking with Computers: Surreptitious Balance Sheets            |
+| Ringer         | The Busy Executive's Database Guide                             |
+| Ringer         | Sushi, Anyone?                                                  |
+| Ringer         | Fifty Years in Buckingham Palace Kitchens                       |
+| Ringer         | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| Ringer         | Emotional Security: A New Algorithm                             |
+| Ringer         | Prolonged Data Deprivation: Four Case Studies                   |
+| Ringer         | Life Without Fear                                               |
+| Ringer         | Is Anger the Enemy?                                             |
+| Ringer         | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| Ringer         | Net Etiquette                                                   |
+| Ringer         | Secrets of Silicon Valley                                       |
+| Ringer         | But Is It User Friendly?                                        |
+| Ringer         | The Psychology of Computer Cooking                              |
+| Ringer         | The Gourmet Microwave                                           |
+| Ringer         | Silicon Valley Gastronomic Treats                               |
+| Ringer         | Straight Talk About Computers                                   |
+| Ringer         | You Can Combat Computer Stress!                                 |
+| Ringer         | Cooking with Computers: Surreptitious Balance Sheets            |
+| Ringer         | The Busy Executive's Database Guide                             |
++----------------+-----------------------------------------------------------------+
+414 rows in set (0.00 sec)
+
+mysql> SELECT a.au_lname, t.title FROM authors a, titles t
+    -> GROUP BY au_fnamel
+    -> ^C
+mysql> SELECT a.au_lname, t.title FROM authors a, titles t
+    -> GROUP BY au_fname;
++----------------+----------------+
+| au_lname       | title          |
++----------------+----------------+
+| White          | Sushi, Anyone? |
+| Green          | Sushi, Anyone? |
+| Carson         | Sushi, Anyone? |
+| O'Leary        | Sushi, Anyone? |
+| Straight       | Sushi, Anyone? |
+| Smith          | Sushi, Anyone? |
+| Bennet         | Sushi, Anyone? |
+| Dull           | Sushi, Anyone? |
+| Gringlesby     | Sushi, Anyone? |
+| Locksley       | Sushi, Anyone? |
+| Greene         | Sushi, Anyone? |
+| Blotchet-Halls | Sushi, Anyone? |
+| Yokomoto       | Sushi, Anyone? |
+| del Castillo   | Sushi, Anyone? |
+| DeFrance       | Sushi, Anyone? |
+| Stringer       | Sushi, Anyone? |
+| MacFeather     | Sushi, Anyone? |
+| Karsen         | Sushi, Anyone? |
+| Panteley       | Sushi, Anyone? |
+| Hunter         | Sushi, Anyone? |
+| McBadden       | Sushi, Anyone? |
+| Ringer         | Sushi, Anyone? |
+| Ringer         | Sushi, Anyone? |
++----------------+----------------+
+23 rows in set (0.00 sec)
+
+mysql> SELECT a.au_fname, t.title FROM authors a, titles t
+    -> GROUP BY title
+    -> ;
++----------+-----------------------------------------------------------------+
+| au_fname | title                                                           |
++----------+-----------------------------------------------------------------+
+| Johnson  | Sushi, Anyone?                                                  |
+| Johnson  | Fifty Years in Buckingham Palace Kitchens                       |
+| Johnson  | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean |
+| Johnson  | Emotional Security: A New Algorithm                             |
+| Johnson  | Prolonged Data Deprivation: Four Case Studies                   |
+| Johnson  | Life Without Fear                                               |
+| Johnson  | Is Anger the Enemy?                                             |
+| Johnson  | Computer Phobic AND Non-Phobic Individuals: Behavior Variations |
+| Johnson  | Net Etiquette                                                   |
+| Johnson  | Secrets of Silicon Valley                                       |
+| Johnson  | But Is It User Friendly?                                        |
+| Johnson  | The Psychology of Computer Cooking                              |
+| Johnson  | The Gourmet Microwave                                           |
+| Johnson  | Silicon Valley Gastronomic Treats                               |
+| Johnson  | Straight Talk About Computers                                   |
+| Johnson  | You Can Combat Computer Stress!                                 |
+| Johnson  | Cooking with Computers: Surreptitious Balance Sheets            |
+| Johnson  | The Busy Executive's Database Guide                             |
++----------+-----------------------------------------------------------------+
+18 rows in set (0.00 sec)
+
+mysql> DESC titles;
++-----------+---------------+------+-----+-----------+-------+
+| Field     | Type          | Null | Key | Default   | Extra |
++-----------+---------------+------+-----+-----------+-------+
+| title_id  | varchar(10)   | NO   | PRI | NULL      |       |
+| title     | varchar(80)   | NO   |     | NULL      |       |
+| type      | char(12)      | NO   |     | UNDECIDED |       |
+| pub_id    | char(4)       | YES  | MUL | NULL      |       |
+| price     | decimal(10,4) | YES  |     | NULL      |       |
+| advance   | decimal(10,4) | YES  |     | NULL      |       |
+| royalty   | int           | YES  |     | NULL      |       |
+| ytd_sales | int           | YES  |     | NULL      |       |
+| notes     | text          | YES  |     | NULL      |       |
+| pubdate   | date          | YES  |     | NULL      |       |
++-----------+---------------+------+-----+-----------+-------+
+10 rows in set (0.01 sec)
+
+mysql> DESC authors;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| au_id    | varchar(11) | NO   | PRI | NULL    |       |
+| au_lname | varchar(40) | NO   |     | NULL    |       |
+| au_fname | varchar(20) | NO   |     | NULL    |       |
+| phone    | char(12)    | NO   |     | Unknown |       |
+| address  | varchar(40) | YES  |     | NULL    |       |
+| city     | varchar(20) | YES  |     | NULL    |       |
+| state    | char(2)     | YES  |     | NULL    |       |
+| zip      | char(5)     | YES  |     | NULL    |       |
+| contract | tinyint     | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+
+mysql> DESC titleauthor;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| au_id      | varchar(11) | YES  | MUL | NULL    |       |
+| title_id   | varchar(10) | YES  | MUL | NULL    |       |
+| au_ord     | tinyint     | YES  |     | NULL    |       |
+| royaltyper | int         | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM titleauthor;
++-------------+----------+--------+------------+
+| au_id       | title_id | au_ord | royaltyper |
++-------------+----------+--------+------------+
+| 409-56-7008 | BU1032   |      1 |         60 |
+| 486-29-1786 | PS7777   |      1 |        100 |
+| 486-29-1786 | PC9999   |      1 |        100 |
+| 712-45-1867 | MC2222   |      1 |        100 |
+| 172-32-1176 | PS3333   |      1 |        100 |
+| 213-46-8915 | BU1032   |      2 |         40 |
+| 238-95-7766 | PC1035   |      1 |        100 |
+| 213-46-8915 | BU2075   |      1 |        100 |
+| 998-72-3567 | PS2091   |      1 |         50 |
+| 899-46-2035 | PS2091   |      2 |         50 |
+| 998-72-3567 | PS2106   |      1 |        100 |
+| 722-51-5454 | MC3021   |      1 |         75 |
+| 899-46-2035 | MC3021   |      2 |         25 |
+| 807-91-6654 | TC3218   |      1 |        100 |
+| 274-80-9391 | BU7832   |      1 |        100 |
+| 427-17-2319 | PC8888   |      1 |         50 |
+| 846-92-7186 | PC8888   |      2 |         50 |
+| 756-30-7391 | PS1372   |      1 |         75 |
+| 724-80-9391 | PS1372   |      2 |         25 |
+| 724-80-9391 | BU1111   |      1 |         60 |
+| 267-41-2394 | BU1111   |      2 |         40 |
+| 672-71-3249 | TC7777   |      1 |         40 |
+| 267-41-2394 | TC7777   |      2 |         30 |
+| 472-27-2349 | TC7777   |      3 |         30 |
+| 648-92-1872 | TC4203   |      1 |        100 |
++-------------+----------+--------+------------+
+25 rows in set (0.00 sec)
+
+mysql> DESC publisher;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| pub_id   | char(4)     | NO   | PRI | NULL    |       |
+| pub_name | varchar(40) | YES  |     | NULL    |       |
+| city     | varchar(40) | YES  |     | NULL    |       |
+| state    | char(2)     | YES  |     | NULL    |       |
+| country  | varchar(30) | YES  |     | USA     |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT t.title, p.pub_name FROM titles t, publisher p;
++-----------------------------------------------------------------+-----------------------+
+| title                                                           | pub_name              |
++-----------------------------------------------------------------+-----------------------+
+| The Busy Executive's Database Guide                             | Lucerne Publishing    |
+| The Busy Executive's Database Guide                             | Scootney Books        |
+| The Busy Executive's Database Guide                             | GGG&G                 |
+| The Busy Executive's Database Guide                             | Ramona Publishers     |
+| The Busy Executive's Database Guide                             | Five Lakes Publishing |
+| The Busy Executive's Database Guide                             | Algodata Infosystems  |
+| The Busy Executive's Database Guide                             | Binnet & Hardley      |
+| The Busy Executive's Database Guide                             | New Moon Books        |
+| Cooking with Computers: Surreptitious Balance Sheets            | Lucerne Publishing    |
+| Cooking with Computers: Surreptitious Balance Sheets            | Scootney Books        |
+| Cooking with Computers: Surreptitious Balance Sheets            | GGG&G                 |
+| Cooking with Computers: Surreptitious Balance Sheets            | Ramona Publishers     |
+| Cooking with Computers: Surreptitious Balance Sheets            | Five Lakes Publishing |
+| Cooking with Computers: Surreptitious Balance Sheets            | Algodata Infosystems  |
+| Cooking with Computers: Surreptitious Balance Sheets            | Binnet & Hardley      |
+| Cooking with Computers: Surreptitious Balance Sheets            | New Moon Books        |
+| You Can Combat Computer Stress!                                 | Lucerne Publishing    |
+| You Can Combat Computer Stress!                                 | Scootney Books        |
+| You Can Combat Computer Stress!                                 | GGG&G                 |
+| You Can Combat Computer Stress!                                 | Ramona Publishers     |
+| You Can Combat Computer Stress!                                 | Five Lakes Publishing |
+| You Can Combat Computer Stress!                                 | Algodata Infosystems  |
+| You Can Combat Computer Stress!                                 | Binnet & Hardley      |
+| You Can Combat Computer Stress!                                 | New Moon Books        |
+| Straight Talk About Computers                                   | Lucerne Publishing    |
+| Straight Talk About Computers                                   | Scootney Books        |
+| Straight Talk About Computers                                   | GGG&G                 |
+| Straight Talk About Computers                                   | Ramona Publishers     |
+| Straight Talk About Computers                                   | Five Lakes Publishing |
+| Straight Talk About Computers                                   | Algodata Infosystems  |
+| Straight Talk About Computers                                   | Binnet & Hardley      |
+| Straight Talk About Computers                                   | New Moon Books        |
+| Silicon Valley Gastronomic Treats                               | Lucerne Publishing    |
+| Silicon Valley Gastronomic Treats                               | Scootney Books        |
+| Silicon Valley Gastronomic Treats                               | GGG&G                 |
+| Silicon Valley Gastronomic Treats                               | Ramona Publishers     |
+| Silicon Valley Gastronomic Treats                               | Five Lakes Publishing |
+| Silicon Valley Gastronomic Treats                               | Algodata Infosystems  |
+| Silicon Valley Gastronomic Treats                               | Binnet & Hardley      |
+| Silicon Valley Gastronomic Treats                               | New Moon Books        |
+| The Gourmet Microwave                                           | Lucerne Publishing    |
+| The Gourmet Microwave                                           | Scootney Books        |
+| The Gourmet Microwave                                           | GGG&G                 |
+| The Gourmet Microwave                                           | Ramona Publishers     |
+| The Gourmet Microwave                                           | Five Lakes Publishing |
+| The Gourmet Microwave                                           | Algodata Infosystems  |
+| The Gourmet Microwave                                           | Binnet & Hardley      |
+| The Gourmet Microwave                                           | New Moon Books        |
+| The Psychology of Computer Cooking                              | Lucerne Publishing    |
+| The Psychology of Computer Cooking                              | Scootney Books        |
+| The Psychology of Computer Cooking                              | GGG&G                 |
+| The Psychology of Computer Cooking                              | Ramona Publishers     |
+| The Psychology of Computer Cooking                              | Five Lakes Publishing |
+| The Psychology of Computer Cooking                              | Algodata Infosystems  |
+| The Psychology of Computer Cooking                              | Binnet & Hardley      |
+| The Psychology of Computer Cooking                              | New Moon Books        |
+| But Is It User Friendly?                                        | Lucerne Publishing    |
+| But Is It User Friendly?                                        | Scootney Books        |
+| But Is It User Friendly?                                        | GGG&G                 |
+| But Is It User Friendly?                                        | Ramona Publishers     |
+| But Is It User Friendly?                                        | Five Lakes Publishing |
+| But Is It User Friendly?                                        | Algodata Infosystems  |
+| But Is It User Friendly?                                        | Binnet & Hardley      |
+| But Is It User Friendly?                                        | New Moon Books        |
+| Secrets of Silicon Valley                                       | Lucerne Publishing    |
+| Secrets of Silicon Valley                                       | Scootney Books        |
+| Secrets of Silicon Valley                                       | GGG&G                 |
+| Secrets of Silicon Valley                                       | Ramona Publishers     |
+| Secrets of Silicon Valley                                       | Five Lakes Publishing |
+| Secrets of Silicon Valley                                       | Algodata Infosystems  |
+| Secrets of Silicon Valley                                       | Binnet & Hardley      |
+| Secrets of Silicon Valley                                       | New Moon Books        |
+| Net Etiquette                                                   | Lucerne Publishing    |
+| Net Etiquette                                                   | Scootney Books        |
+| Net Etiquette                                                   | GGG&G                 |
+| Net Etiquette                                                   | Ramona Publishers     |
+| Net Etiquette                                                   | Five Lakes Publishing |
+| Net Etiquette                                                   | Algodata Infosystems  |
+| Net Etiquette                                                   | Binnet & Hardley      |
+| Net Etiquette                                                   | New Moon Books        |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Lucerne Publishing    |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Scootney Books        |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | GGG&G                 |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Ramona Publishers     |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Five Lakes Publishing |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Algodata Infosystems  |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Binnet & Hardley      |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | New Moon Books        |
+| Is Anger the Enemy?                                             | Lucerne Publishing    |
+| Is Anger the Enemy?                                             | Scootney Books        |
+| Is Anger the Enemy?                                             | GGG&G                 |
+| Is Anger the Enemy?                                             | Ramona Publishers     |
+| Is Anger the Enemy?                                             | Five Lakes Publishing |
+| Is Anger the Enemy?                                             | Algodata Infosystems  |
+| Is Anger the Enemy?                                             | Binnet & Hardley      |
+| Is Anger the Enemy?                                             | New Moon Books        |
+| Life Without Fear                                               | Lucerne Publishing    |
+| Life Without Fear                                               | Scootney Books        |
+| Life Without Fear                                               | GGG&G                 |
+| Life Without Fear                                               | Ramona Publishers     |
+| Life Without Fear                                               | Five Lakes Publishing |
+| Life Without Fear                                               | Algodata Infosystems  |
+| Life Without Fear                                               | Binnet & Hardley      |
+| Life Without Fear                                               | New Moon Books        |
+| Prolonged Data Deprivation: Four Case Studies                   | Lucerne Publishing    |
+| Prolonged Data Deprivation: Four Case Studies                   | Scootney Books        |
+| Prolonged Data Deprivation: Four Case Studies                   | GGG&G                 |
+| Prolonged Data Deprivation: Four Case Studies                   | Ramona Publishers     |
+| Prolonged Data Deprivation: Four Case Studies                   | Five Lakes Publishing |
+| Prolonged Data Deprivation: Four Case Studies                   | Algodata Infosystems  |
+| Prolonged Data Deprivation: Four Case Studies                   | Binnet & Hardley      |
+| Prolonged Data Deprivation: Four Case Studies                   | New Moon Books        |
+| Emotional Security: A New Algorithm                             | Lucerne Publishing    |
+| Emotional Security: A New Algorithm                             | Scootney Books        |
+| Emotional Security: A New Algorithm                             | GGG&G                 |
+| Emotional Security: A New Algorithm                             | Ramona Publishers     |
+| Emotional Security: A New Algorithm                             | Five Lakes Publishing |
+| Emotional Security: A New Algorithm                             | Algodata Infosystems  |
+| Emotional Security: A New Algorithm                             | Binnet & Hardley      |
+| Emotional Security: A New Algorithm                             | New Moon Books        |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Lucerne Publishing    |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Scootney Books        |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | GGG&G                 |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Ramona Publishers     |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Five Lakes Publishing |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Algodata Infosystems  |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Binnet & Hardley      |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | New Moon Books        |
+| Fifty Years in Buckingham Palace Kitchens                       | Lucerne Publishing    |
+| Fifty Years in Buckingham Palace Kitchens                       | Scootney Books        |
+| Fifty Years in Buckingham Palace Kitchens                       | GGG&G                 |
+| Fifty Years in Buckingham Palace Kitchens                       | Ramona Publishers     |
+| Fifty Years in Buckingham Palace Kitchens                       | Five Lakes Publishing |
+| Fifty Years in Buckingham Palace Kitchens                       | Algodata Infosystems  |
+| Fifty Years in Buckingham Palace Kitchens                       | Binnet & Hardley      |
+| Fifty Years in Buckingham Palace Kitchens                       | New Moon Books        |
+| Sushi, Anyone?                                                  | Lucerne Publishing    |
+| Sushi, Anyone?                                                  | Scootney Books        |
+| Sushi, Anyone?                                                  | GGG&G                 |
+| Sushi, Anyone?                                                  | Ramona Publishers     |
+| Sushi, Anyone?                                                  | Five Lakes Publishing |
+| Sushi, Anyone?                                                  | Algodata Infosystems  |
+| Sushi, Anyone?                                                  | Binnet & Hardley      |
+| Sushi, Anyone?                                                  | New Moon Books        |
++-----------------------------------------------------------------+-----------------------+
+144 rows in set (0.00 sec)
+
+mysql> SELECT t.title, p.pub_name FROM titles t, publisher p
+    -> WHERE title.pub_id = publisher.pub_id;
+ERROR 1054 (42S22): Unknown column 'title.pub_id' in 'where clause'
+mysql> SELECT t.title, p.pub_name FROM titles t, publisher p
+    -> WHERE t.pub_id = p.pub_id;
++-----------------------------------------------------------------+----------------------+
+| title                                                           | pub_name             |
++-----------------------------------------------------------------+----------------------+
+| The Busy Executive's Database Guide                             | Algodata Infosystems |
+| Cooking with Computers: Surreptitious Balance Sheets            | Algodata Infosystems |
+| You Can Combat Computer Stress!                                 | New Moon Books       |
+| Straight Talk About Computers                                   | Algodata Infosystems |
+| Silicon Valley Gastronomic Treats                               | Binnet & Hardley     |
+| The Gourmet Microwave                                           | Binnet & Hardley     |
+| The Psychology of Computer Cooking                              | Binnet & Hardley     |
+| But Is It User Friendly?                                        | Algodata Infosystems |
+| Secrets of Silicon Valley                                       | Algodata Infosystems |
+| Net Etiquette                                                   | Algodata Infosystems |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Binnet & Hardley     |
+| Is Anger the Enemy?                                             | New Moon Books       |
+| Life Without Fear                                               | New Moon Books       |
+| Prolonged Data Deprivation: Four Case Studies                   | New Moon Books       |
+| Emotional Security: A New Algorithm                             | New Moon Books       |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Binnet & Hardley     |
+| Fifty Years in Buckingham Palace Kitchens                       | Binnet & Hardley     |
+| Sushi, Anyone?                                                  | Binnet & Hardley     |
++-----------------------------------------------------------------+----------------------+
+18 rows in set (0.00 sec)
+
+mysql> SELECT a.au_lname AS "Author Last Name",p.pub_name AS "Publisher Name" FROM author a, publisher p 
+    -> ;
+ERROR 1146 (42S02): Table 'pubs.author' doesn't exist
+mysql> SELECT a.au_lname AS "Author Last Name",p.pub_name AS "Publisher Name" FROM authors a, publisher p ;
++------------------+-----------------------+
+| Author Last Name | Publisher Name        |
++------------------+-----------------------+
+| White            | Lucerne Publishing    |
+| White            | Scootney Books        |
+| White            | GGG&G                 |
+| White            | Ramona Publishers     |
+| White            | Five Lakes Publishing |
+| White            | Algodata Infosystems  |
+| White            | Binnet & Hardley      |
+| White            | New Moon Books        |
+| Green            | Lucerne Publishing    |
+| Green            | Scootney Books        |
+| Green            | GGG&G                 |
+| Green            | Ramona Publishers     |
+| Green            | Five Lakes Publishing |
+| Green            | Algodata Infosystems  |
+| Green            | Binnet & Hardley      |
+| Green            | New Moon Books        |
+| Carson           | Lucerne Publishing    |
+| Carson           | Scootney Books        |
+| Carson           | GGG&G                 |
+| Carson           | Ramona Publishers     |
+| Carson           | Five Lakes Publishing |
+| Carson           | Algodata Infosystems  |
+| Carson           | Binnet & Hardley      |
+| Carson           | New Moon Books        |
+| O'Leary          | Lucerne Publishing    |
+| O'Leary          | Scootney Books        |
+| O'Leary          | GGG&G                 |
+| O'Leary          | Ramona Publishers     |
+| O'Leary          | Five Lakes Publishing |
+| O'Leary          | Algodata Infosystems  |
+| O'Leary          | Binnet & Hardley      |
+| O'Leary          | New Moon Books        |
+| Straight         | Lucerne Publishing    |
+| Straight         | Scootney Books        |
+| Straight         | GGG&G                 |
+| Straight         | Ramona Publishers     |
+| Straight         | Five Lakes Publishing |
+| Straight         | Algodata Infosystems  |
+| Straight         | Binnet & Hardley      |
+| Straight         | New Moon Books        |
+| Smith            | Lucerne Publishing    |
+| Smith            | Scootney Books        |
+| Smith            | GGG&G                 |
+| Smith            | Ramona Publishers     |
+| Smith            | Five Lakes Publishing |
+| Smith            | Algodata Infosystems  |
+| Smith            | Binnet & Hardley      |
+| Smith            | New Moon Books        |
+| Bennet           | Lucerne Publishing    |
+| Bennet           | Scootney Books        |
+| Bennet           | GGG&G                 |
+| Bennet           | Ramona Publishers     |
+| Bennet           | Five Lakes Publishing |
+| Bennet           | Algodata Infosystems  |
+| Bennet           | Binnet & Hardley      |
+| Bennet           | New Moon Books        |
+| Dull             | Lucerne Publishing    |
+| Dull             | Scootney Books        |
+| Dull             | GGG&G                 |
+| Dull             | Ramona Publishers     |
+| Dull             | Five Lakes Publishing |
+| Dull             | Algodata Infosystems  |
+| Dull             | Binnet & Hardley      |
+| Dull             | New Moon Books        |
+| Gringlesby       | Lucerne Publishing    |
+| Gringlesby       | Scootney Books        |
+| Gringlesby       | GGG&G                 |
+| Gringlesby       | Ramona Publishers     |
+| Gringlesby       | Five Lakes Publishing |
+| Gringlesby       | Algodata Infosystems  |
+| Gringlesby       | Binnet & Hardley      |
+| Gringlesby       | New Moon Books        |
+| Locksley         | Lucerne Publishing    |
+| Locksley         | Scootney Books        |
+| Locksley         | GGG&G                 |
+| Locksley         | Ramona Publishers     |
+| Locksley         | Five Lakes Publishing |
+| Locksley         | Algodata Infosystems  |
+| Locksley         | Binnet & Hardley      |
+| Locksley         | New Moon Books        |
+| Greene           | Lucerne Publishing    |
+| Greene           | Scootney Books        |
+| Greene           | GGG&G                 |
+| Greene           | Ramona Publishers     |
+| Greene           | Five Lakes Publishing |
+| Greene           | Algodata Infosystems  |
+| Greene           | Binnet & Hardley      |
+| Greene           | New Moon Books        |
+| Blotchet-Halls   | Lucerne Publishing    |
+| Blotchet-Halls   | Scootney Books        |
+| Blotchet-Halls   | GGG&G                 |
+| Blotchet-Halls   | Ramona Publishers     |
+| Blotchet-Halls   | Five Lakes Publishing |
+| Blotchet-Halls   | Algodata Infosystems  |
+| Blotchet-Halls   | Binnet & Hardley      |
+| Blotchet-Halls   | New Moon Books        |
+| Yokomoto         | Lucerne Publishing    |
+| Yokomoto         | Scootney Books        |
+| Yokomoto         | GGG&G                 |
+| Yokomoto         | Ramona Publishers     |
+| Yokomoto         | Five Lakes Publishing |
+| Yokomoto         | Algodata Infosystems  |
+| Yokomoto         | Binnet & Hardley      |
+| Yokomoto         | New Moon Books        |
+| del Castillo     | Lucerne Publishing    |
+| del Castillo     | Scootney Books        |
+| del Castillo     | GGG&G                 |
+| del Castillo     | Ramona Publishers     |
+| del Castillo     | Five Lakes Publishing |
+| del Castillo     | Algodata Infosystems  |
+| del Castillo     | Binnet & Hardley      |
+| del Castillo     | New Moon Books        |
+| DeFrance         | Lucerne Publishing    |
+| DeFrance         | Scootney Books        |
+| DeFrance         | GGG&G                 |
+| DeFrance         | Ramona Publishers     |
+| DeFrance         | Five Lakes Publishing |
+| DeFrance         | Algodata Infosystems  |
+| DeFrance         | Binnet & Hardley      |
+| DeFrance         | New Moon Books        |
+| Stringer         | Lucerne Publishing    |
+| Stringer         | Scootney Books        |
+| Stringer         | GGG&G                 |
+| Stringer         | Ramona Publishers     |
+| Stringer         | Five Lakes Publishing |
+| Stringer         | Algodata Infosystems  |
+| Stringer         | Binnet & Hardley      |
+| Stringer         | New Moon Books        |
+| MacFeather       | Lucerne Publishing    |
+| MacFeather       | Scootney Books        |
+| MacFeather       | GGG&G                 |
+| MacFeather       | Ramona Publishers     |
+| MacFeather       | Five Lakes Publishing |
+| MacFeather       | Algodata Infosystems  |
+| MacFeather       | Binnet & Hardley      |
+| MacFeather       | New Moon Books        |
+| Karsen           | Lucerne Publishing    |
+| Karsen           | Scootney Books        |
+| Karsen           | GGG&G                 |
+| Karsen           | Ramona Publishers     |
+| Karsen           | Five Lakes Publishing |
+| Karsen           | Algodata Infosystems  |
+| Karsen           | Binnet & Hardley      |
+| Karsen           | New Moon Books        |
+| Panteley         | Lucerne Publishing    |
+| Panteley         | Scootney Books        |
+| Panteley         | GGG&G                 |
+| Panteley         | Ramona Publishers     |
+| Panteley         | Five Lakes Publishing |
+| Panteley         | Algodata Infosystems  |
+| Panteley         | Binnet & Hardley      |
+| Panteley         | New Moon Books        |
+| Hunter           | Lucerne Publishing    |
+| Hunter           | Scootney Books        |
+| Hunter           | GGG&G                 |
+| Hunter           | Ramona Publishers     |
+| Hunter           | Five Lakes Publishing |
+| Hunter           | Algodata Infosystems  |
+| Hunter           | Binnet & Hardley      |
+| Hunter           | New Moon Books        |
+| McBadden         | Lucerne Publishing    |
+| McBadden         | Scootney Books        |
+| McBadden         | GGG&G                 |
+| McBadden         | Ramona Publishers     |
+| McBadden         | Five Lakes Publishing |
+| McBadden         | Algodata Infosystems  |
+| McBadden         | Binnet & Hardley      |
+| McBadden         | New Moon Books        |
+| Ringer           | Lucerne Publishing    |
+| Ringer           | Scootney Books        |
+| Ringer           | GGG&G                 |
+| Ringer           | Ramona Publishers     |
+| Ringer           | Five Lakes Publishing |
+| Ringer           | Algodata Infosystems  |
+| Ringer           | Binnet & Hardley      |
+| Ringer           | New Moon Books        |
+| Ringer           | Lucerne Publishing    |
+| Ringer           | Scootney Books        |
+| Ringer           | GGG&G                 |
+| Ringer           | Ramona Publishers     |
+| Ringer           | Five Lakes Publishing |
+| Ringer           | Algodata Infosystems  |
+| Ringer           | Binnet & Hardley      |
+| Ringer           | New Moon Books        |
++------------------+-----------------------+
+184 rows in set (0.00 sec)
+
+mysql> SELECT a.au_lname AS "Author Last Name",p.pub_name AS "Publisher Name" FROM authors a, publisher p ;
++------------------+-----------------------+
+| Author Last Name | Publisher Name        |
++------------------+-----------------------+
+| White            | Lucerne Publishing    |
+| White            | Scootney Books        |
+| White            | GGG&G                 |
+| White            | Ramona Publishers     |
+| White            | Five Lakes Publishing |
+| White            | Algodata Infosystems  |
+| White            | Binnet & Hardley      |
+| White            | New Moon Books        |
+| Green            | Lucerne Publishing    |
+| Green            | Scootney Books        |
+| Green            | GGG&G                 |
+| Green            | Ramona Publishers     |
+| Green            | Five Lakes Publishing |
+| Green            | Algodata Infosystems  |
+| Green            | Binnet & Hardley      |
+| Green            | New Moon Books        |
+| Carson           | Lucerne Publishing    |
+| Carson           | Scootney Books        |
+| Carson           | GGG&G                 |
+| Carson           | Ramona Publishers     |
+| Carson           | Five Lakes Publishing |
+| Carson           | Algodata Infosystems  |
+| Carson           | Binnet & Hardley      |
+| Carson           | New Moon Books        |
+| O'Leary          | Lucerne Publishing    |
+| O'Leary          | Scootney Books        |
+| O'Leary          | GGG&G                 |
+| O'Leary          | Ramona Publishers     |
+| O'Leary          | Five Lakes Publishing |
+| O'Leary          | Algodata Infosystems  |
+| O'Leary          | Binnet & Hardley      |
+| O'Leary          | New Moon Books        |
+| Straight         | Lucerne Publishing    |
+| Straight         | Scootney Books        |
+| Straight         | GGG&G                 |
+| Straight         | Ramona Publishers     |
+| Straight         | Five Lakes Publishing |
+| Straight         | Algodata Infosystems  |
+| Straight         | Binnet & Hardley      |
+| Straight         | New Moon Books        |
+| Smith            | Lucerne Publishing    |
+| Smith            | Scootney Books        |
+| Smith            | GGG&G                 |
+| Smith            | Ramona Publishers     |
+| Smith            | Five Lakes Publishing |
+| Smith            | Algodata Infosystems  |
+| Smith            | Binnet & Hardley      |
+| Smith            | New Moon Books        |
+| Bennet           | Lucerne Publishing    |
+| Bennet           | Scootney Books        |
+| Bennet           | GGG&G                 |
+| Bennet           | Ramona Publishers     |
+| Bennet           | Five Lakes Publishing |
+| Bennet           | Algodata Infosystems  |
+| Bennet           | Binnet & Hardley      |
+| Bennet           | New Moon Books        |
+| Dull             | Lucerne Publishing    |
+| Dull             | Scootney Books        |
+| Dull             | GGG&G                 |
+| Dull             | Ramona Publishers     |
+| Dull             | Five Lakes Publishing |
+| Dull             | Algodata Infosystems  |
+| Dull             | Binnet & Hardley      |
+| Dull             | New Moon Books        |
+| Gringlesby       | Lucerne Publishing    |
+| Gringlesby       | Scootney Books        |
+| Gringlesby       | GGG&G                 |
+| Gringlesby       | Ramona Publishers     |
+| Gringlesby       | Five Lakes Publishing |
+| Gringlesby       | Algodata Infosystems  |
+| Gringlesby       | Binnet & Hardley      |
+| Gringlesby       | New Moon Books        |
+| Locksley         | Lucerne Publishing    |
+| Locksley         | Scootney Books        |
+| Locksley         | GGG&G                 |
+| Locksley         | Ramona Publishers     |
+| Locksley         | Five Lakes Publishing |
+| Locksley         | Algodata Infosystems  |
+| Locksley         | Binnet & Hardley      |
+| Locksley         | New Moon Books        |
+| Greene           | Lucerne Publishing    |
+| Greene           | Scootney Books        |
+| Greene           | GGG&G                 |
+| Greene           | Ramona Publishers     |
+| Greene           | Five Lakes Publishing |
+| Greene           | Algodata Infosystems  |
+| Greene           | Binnet & Hardley      |
+| Greene           | New Moon Books        |
+| Blotchet-Halls   | Lucerne Publishing    |
+| Blotchet-Halls   | Scootney Books        |
+| Blotchet-Halls   | GGG&G                 |
+| Blotchet-Halls   | Ramona Publishers     |
+| Blotchet-Halls   | Five Lakes Publishing |
+| Blotchet-Halls   | Algodata Infosystems  |
+| Blotchet-Halls   | Binnet & Hardley      |
+| Blotchet-Halls   | New Moon Books        |
+| Yokomoto         | Lucerne Publishing    |
+| Yokomoto         | Scootney Books        |
+| Yokomoto         | GGG&G                 |
+| Yokomoto         | Ramona Publishers     |
+| Yokomoto         | Five Lakes Publishing |
+| Yokomoto         | Algodata Infosystems  |
+| Yokomoto         | Binnet & Hardley      |
+| Yokomoto         | New Moon Books        |
+| del Castillo     | Lucerne Publishing    |
+| del Castillo     | Scootney Books        |
+| del Castillo     | GGG&G                 |
+| del Castillo     | Ramona Publishers     |
+| del Castillo     | Five Lakes Publishing |
+| del Castillo     | Algodata Infosystems  |
+| del Castillo     | Binnet & Hardley      |
+| del Castillo     | New Moon Books        |
+| DeFrance         | Lucerne Publishing    |
+| DeFrance         | Scootney Books        |
+| DeFrance         | GGG&G                 |
+| DeFrance         | Ramona Publishers     |
+| DeFrance         | Five Lakes Publishing |
+| DeFrance         | Algodata Infosystems  |
+| DeFrance         | Binnet & Hardley      |
+| DeFrance         | New Moon Books        |
+| Stringer         | Lucerne Publishing    |
+| Stringer         | Scootney Books        |
+| Stringer         | GGG&G                 |
+| Stringer         | Ramona Publishers     |
+| Stringer         | Five Lakes Publishing |
+| Stringer         | Algodata Infosystems  |
+| Stringer         | Binnet & Hardley      |
+| Stringer         | New Moon Books        |
+| MacFeather       | Lucerne Publishing    |
+| MacFeather       | Scootney Books        |
+| MacFeather       | GGG&G                 |
+| MacFeather       | Ramona Publishers     |
+| MacFeather       | Five Lakes Publishing |
+| MacFeather       | Algodata Infosystems  |
+| MacFeather       | Binnet & Hardley      |
+| MacFeather       | New Moon Books        |
+| Karsen           | Lucerne Publishing    |
+| Karsen           | Scootney Books        |
+| Karsen           | GGG&G                 |
+| Karsen           | Ramona Publishers     |
+| Karsen           | Five Lakes Publishing |
+| Karsen           | Algodata Infosystems  |
+| Karsen           | Binnet & Hardley      |
+| Karsen           | New Moon Books        |
+| Panteley         | Lucerne Publishing    |
+| Panteley         | Scootney Books        |
+| Panteley         | GGG&G                 |
+| Panteley         | Ramona Publishers     |
+| Panteley         | Five Lakes Publishing |
+| Panteley         | Algodata Infosystems  |
+| Panteley         | Binnet & Hardley      |
+| Panteley         | New Moon Books        |
+| Hunter           | Lucerne Publishing    |
+| Hunter           | Scootney Books        |
+| Hunter           | GGG&G                 |
+| Hunter           | Ramona Publishers     |
+| Hunter           | Five Lakes Publishing |
+| Hunter           | Algodata Infosystems  |
+| Hunter           | Binnet & Hardley      |
+| Hunter           | New Moon Books        |
+| McBadden         | Lucerne Publishing    |
+| McBadden         | Scootney Books        |
+| McBadden         | GGG&G                 |
+| McBadden         | Ramona Publishers     |
+| McBadden         | Five Lakes Publishing |
+| McBadden         | Algodata Infosystems  |
+| McBadden         | Binnet & Hardley      |
+| McBadden         | New Moon Books        |
+| Ringer           | Lucerne Publishing    |
+| Ringer           | Scootney Books        |
+| Ringer           | GGG&G                 |
+| Ringer           | Ramona Publishers     |
+| Ringer           | Five Lakes Publishing |
+| Ringer           | Algodata Infosystems  |
+| Ringer           | Binnet & Hardley      |
+| Ringer           | New Moon Books        |
+| Ringer           | Lucerne Publishing    |
+| Ringer           | Scootney Books        |
+| Ringer           | GGG&G                 |
+| Ringer           | Ramona Publishers     |
+| Ringer           | Five Lakes Publishing |
+| Ringer           | Algodata Infosystems  |
+| Ringer           | Binnet & Hardley      |
+| Ringer           | New Moon Books        |
++------------------+-----------------------+
+184 rows in set (0.00 sec)
+
+mysql> SELECT a.au_lname AS "Author Last Name",p.pub_name AS "Publisher Name" FROM authors a, publisher p 
+    -> WHERE a.city = p.city;
++------------------+----------------------+
+| Author Last Name | Publisher Name       |
++------------------+----------------------+
+| Carson           | Algodata Infosystems |
+| Bennet           | Algodata Infosystems |
++------------------+----------------------+
+2 rows in set (0.00 sec)
+
+mysql> select*from authors;
++-------------+----------------+-------------+--------------+----------------------+----------------+-------+-------+----------+
+| au_id       | au_lname       | au_fname    | phone        | address              | city           | state | zip   | contract |
++-------------+----------------+-------------+--------------+----------------------+----------------+-------+-------+----------+
+| 172-32-1176 | White          | Johnson     | 408 496-7223 | 10932 Bigge Rd.      | Menlo Park     | CA    | 94025 |        1 |
+| 213-46-8915 | Green          | Marjorie    | 415 986-7020 | 309 63rd St. #411    | Oakland        | CA    | 94618 |        1 |
+| 238-95-7766 | Carson         | Cheryl      | 415 548-7723 | 589 Darwin Ln.       | Berkeley       | CA    | 94705 |        1 |
+| 267-41-2394 | O'Leary        | Michael     | 408 286-2428 | 22 Cleveland Av. #14 | San Jose       | CA    | 95128 |        1 |
+| 274-80-9391 | Straight       | Dean        | 415 834-2919 | 5420 College Av.     | Oakland        | CA    | 94609 |        1 |
+| 341-22-1782 | Smith          | Meander     | 913 843-0462 | 10 Mississippi Dr.   | Lawrence       | KS    | 66044 |        0 |
+| 409-56-7008 | Bennet         | Abraham     | 415 658-9932 | 6223 Bateman St.     | Berkeley       | CA    | 94705 |        1 |
+| 427-17-2319 | Dull           | Ann         | 415 836-7128 | 3410 Blonde St.      | Palo Alto      | CA    | 94301 |        1 |
+| 472-27-2349 | Gringlesby     | Burt        | 707 938-6445 | PO Box 792           | Covelo         | CA    | 95428 |        3 |
+| 486-29-1786 | Locksley       | Charlene    | 415 585-4620 | 18 Broadway Av.      | San Francisco  | CA    | 94130 |        1 |
+| 527-72-3246 | Greene         | Morningstar | 615 297-2723 | 22 Graybar House Rd. | Nashville      | TN    | 37215 |        0 |
+| 648-92-1872 | Blotchet-Halls | Reginald    | 503 745-6402 | 55 Hillsdale Bl.     | Corvallis      | OR    | 97330 |        1 |
+| 672-71-3249 | Yokomoto       | Akiko       | 415 935-4228 | 3 Silver Ct.         | Walnut Creek   | CA    | 94595 |        1 |
+| 712-45-1867 | del Castillo   | Innes       | 615 996-8275 | 2286 Cram Pl. #86    | Ann Arbor      | MI    | 48105 |        1 |
+| 722-51-5454 | DeFrance       | Michel      | 219 547-9982 | 3 Balding Pl.        | Gary           | IN    | 46403 |        1 |
+| 724-08-9931 | Stringer       | Dirk        | 415 843-2991 | 5420 Telegraph Av.   | Oakland        | CA    | 94609 |        0 |
+| 724-80-9391 | MacFeather     | Stearns     | 415 354-7128 | 44 Upland Hts.       | Oakland        | CA    | 94612 |        1 |
+| 756-30-7391 | Karsen         | Livia       | 415 534-9219 | 5720 McAuley St.     | Oakland        | CA    | 94609 |        1 |
+| 807-91-6654 | Panteley       | Sylvia      | 301 946-8853 | 1956 Arlington Pl.   | Rockville      | MD    | 20853 |        1 |
+| 846-92-7186 | Hunter         | Sheryl      | 415 836-7128 | 3410 Blonde St.      | Palo Alto      | CA    | 94301 |        1 |
+| 893-72-1158 | McBadden       | Heather     | 707 448-4982 | 301 Putnam           | Vacaville      | CA    | 95688 |        0 |
+| 899-46-2035 | Ringer         | Anne        | 801 826-0752 | 67 Seventh Av.       | Salt Lake City | UT    | 84152 |        1 |
+| 998-72-3567 | Ringer         | Albert      | 801 826-0752 | 67 Seventh Av.       | Salt Lake City | UT    | 84152 |        1 |
++-------------+----------------+-------------+--------------+----------------------+----------------+-------+-------+----------+
+23 rows in set (0.00 sec)
+
+mysql> select*from publisher;
++--------+-----------------------+------------+-------+---------+
+| pub_id | pub_name              | city       | state | country |
++--------+-----------------------+------------+-------+---------+
+| 0736   | New Moon Books        | Boston     | MA    | USA     |
+| 0877   | Binnet & Hardley      | Washington | DC    | USA     |
+| 1389   | Algodata Infosystems  | Berkeley   | CA    | USA     |
+| 1622   | Five Lakes Publishing | Chicago    | IL    | USA     |
+| 1756   | Ramona Publishers     | Dallas     | TX    | USA     |
+| 9901   | GGG&G                 | M?nchen    | NULL  | Germany |
+| 9952   | Scootney Books        | New York   | NY    | USA     |
+| 9999   | Lucerne Publishing    | Paris      | NULL  | France  |
++--------+-----------------------+------------+-------+---------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT a.au_fname AS "Author Name", p.pub_name AS "Publisher Name" FROM authors a, publisher p
+    -> WHERE a.city != p.city;
++-------------+-----------------------+
+| Author Name | Publisher Name        |
++-------------+-----------------------+
+| Johnson     | Lucerne Publishing    |
+| Johnson     | Scootney Books        |
+| Johnson     | GGG&G                 |
+| Johnson     | Ramona Publishers     |
+| Johnson     | Five Lakes Publishing |
+| Johnson     | Algodata Infosystems  |
+| Johnson     | Binnet & Hardley      |
+| Johnson     | New Moon Books        |
+| Marjorie    | Lucerne Publishing    |
+| Marjorie    | Scootney Books        |
+| Marjorie    | GGG&G                 |
+| Marjorie    | Ramona Publishers     |
+| Marjorie    | Five Lakes Publishing |
+| Marjorie    | Algodata Infosystems  |
+| Marjorie    | Binnet & Hardley      |
+| Marjorie    | New Moon Books        |
+| Cheryl      | Lucerne Publishing    |
+| Cheryl      | Scootney Books        |
+| Cheryl      | GGG&G                 |
+| Cheryl      | Ramona Publishers     |
+| Cheryl      | Five Lakes Publishing |
+| Cheryl      | Binnet & Hardley      |
+| Cheryl      | New Moon Books        |
+| Michael     | Lucerne Publishing    |
+| Michael     | Scootney Books        |
+| Michael     | GGG&G                 |
+| Michael     | Ramona Publishers     |
+| Michael     | Five Lakes Publishing |
+| Michael     | Algodata Infosystems  |
+| Michael     | Binnet & Hardley      |
+| Michael     | New Moon Books        |
+| Dean        | Lucerne Publishing    |
+| Dean        | Scootney Books        |
+| Dean        | GGG&G                 |
+| Dean        | Ramona Publishers     |
+| Dean        | Five Lakes Publishing |
+| Dean        | Algodata Infosystems  |
+| Dean        | Binnet & Hardley      |
+| Dean        | New Moon Books        |
+| Meander     | Lucerne Publishing    |
+| Meander     | Scootney Books        |
+| Meander     | GGG&G                 |
+| Meander     | Ramona Publishers     |
+| Meander     | Five Lakes Publishing |
+| Meander     | Algodata Infosystems  |
+| Meander     | Binnet & Hardley      |
+| Meander     | New Moon Books        |
+| Abraham     | Lucerne Publishing    |
+| Abraham     | Scootney Books        |
+| Abraham     | GGG&G                 |
+| Abraham     | Ramona Publishers     |
+| Abraham     | Five Lakes Publishing |
+| Abraham     | Binnet & Hardley      |
+| Abraham     | New Moon Books        |
+| Ann         | Lucerne Publishing    |
+| Ann         | Scootney Books        |
+| Ann         | GGG&G                 |
+| Ann         | Ramona Publishers     |
+| Ann         | Five Lakes Publishing |
+| Ann         | Algodata Infosystems  |
+| Ann         | Binnet & Hardley      |
+| Ann         | New Moon Books        |
+| Burt        | Lucerne Publishing    |
+| Burt        | Scootney Books        |
+| Burt        | GGG&G                 |
+| Burt        | Ramona Publishers     |
+| Burt        | Five Lakes Publishing |
+| Burt        | Algodata Infosystems  |
+| Burt        | Binnet & Hardley      |
+| Burt        | New Moon Books        |
+| Charlene    | Lucerne Publishing    |
+| Charlene    | Scootney Books        |
+| Charlene    | GGG&G                 |
+| Charlene    | Ramona Publishers     |
+| Charlene    | Five Lakes Publishing |
+| Charlene    | Algodata Infosystems  |
+| Charlene    | Binnet & Hardley      |
+| Charlene    | New Moon Books        |
+| Morningstar | Lucerne Publishing    |
+| Morningstar | Scootney Books        |
+| Morningstar | GGG&G                 |
+| Morningstar | Ramona Publishers     |
+| Morningstar | Five Lakes Publishing |
+| Morningstar | Algodata Infosystems  |
+| Morningstar | Binnet & Hardley      |
+| Morningstar | New Moon Books        |
+| Reginald    | Lucerne Publishing    |
+| Reginald    | Scootney Books        |
+| Reginald    | GGG&G                 |
+| Reginald    | Ramona Publishers     |
+| Reginald    | Five Lakes Publishing |
+| Reginald    | Algodata Infosystems  |
+| Reginald    | Binnet & Hardley      |
+| Reginald    | New Moon Books        |
+| Akiko       | Lucerne Publishing    |
+| Akiko       | Scootney Books        |
+| Akiko       | GGG&G                 |
+| Akiko       | Ramona Publishers     |
+| Akiko       | Five Lakes Publishing |
+| Akiko       | Algodata Infosystems  |
+| Akiko       | Binnet & Hardley      |
+| Akiko       | New Moon Books        |
+| Innes       | Lucerne Publishing    |
+| Innes       | Scootney Books        |
+| Innes       | GGG&G                 |
+| Innes       | Ramona Publishers     |
+| Innes       | Five Lakes Publishing |
+| Innes       | Algodata Infosystems  |
+| Innes       | Binnet & Hardley      |
+| Innes       | New Moon Books        |
+| Michel      | Lucerne Publishing    |
+| Michel      | Scootney Books        |
+| Michel      | GGG&G                 |
+| Michel      | Ramona Publishers     |
+| Michel      | Five Lakes Publishing |
+| Michel      | Algodata Infosystems  |
+| Michel      | Binnet & Hardley      |
+| Michel      | New Moon Books        |
+| Dirk        | Lucerne Publishing    |
+| Dirk        | Scootney Books        |
+| Dirk        | GGG&G                 |
+| Dirk        | Ramona Publishers     |
+| Dirk        | Five Lakes Publishing |
+| Dirk        | Algodata Infosystems  |
+| Dirk        | Binnet & Hardley      |
+| Dirk        | New Moon Books        |
+| Stearns     | Lucerne Publishing    |
+| Stearns     | Scootney Books        |
+| Stearns     | GGG&G                 |
+| Stearns     | Ramona Publishers     |
+| Stearns     | Five Lakes Publishing |
+| Stearns     | Algodata Infosystems  |
+| Stearns     | Binnet & Hardley      |
+| Stearns     | New Moon Books        |
+| Livia       | Lucerne Publishing    |
+| Livia       | Scootney Books        |
+| Livia       | GGG&G                 |
+| Livia       | Ramona Publishers     |
+| Livia       | Five Lakes Publishing |
+| Livia       | Algodata Infosystems  |
+| Livia       | Binnet & Hardley      |
+| Livia       | New Moon Books        |
+| Sylvia      | Lucerne Publishing    |
+| Sylvia      | Scootney Books        |
+| Sylvia      | GGG&G                 |
+| Sylvia      | Ramona Publishers     |
+| Sylvia      | Five Lakes Publishing |
+| Sylvia      | Algodata Infosystems  |
+| Sylvia      | Binnet & Hardley      |
+| Sylvia      | New Moon Books        |
+| Sheryl      | Lucerne Publishing    |
+| Sheryl      | Scootney Books        |
+| Sheryl      | GGG&G                 |
+| Sheryl      | Ramona Publishers     |
+| Sheryl      | Five Lakes Publishing |
+| Sheryl      | Algodata Infosystems  |
+| Sheryl      | Binnet & Hardley      |
+| Sheryl      | New Moon Books        |
+| Heather     | Lucerne Publishing    |
+| Heather     | Scootney Books        |
+| Heather     | GGG&G                 |
+| Heather     | Ramona Publishers     |
+| Heather     | Five Lakes Publishing |
+| Heather     | Algodata Infosystems  |
+| Heather     | Binnet & Hardley      |
+| Heather     | New Moon Books        |
+| Anne        | Lucerne Publishing    |
+| Anne        | Scootney Books        |
+| Anne        | GGG&G                 |
+| Anne        | Ramona Publishers     |
+| Anne        | Five Lakes Publishing |
+| Anne        | Algodata Infosystems  |
+| Anne        | Binnet & Hardley      |
+| Anne        | New Moon Books        |
+| Albert      | Lucerne Publishing    |
+| Albert      | Scootney Books        |
+| Albert      | GGG&G                 |
+| Albert      | Ramona Publishers     |
+| Albert      | Five Lakes Publishing |
+| Albert      | Algodata Infosystems  |
+| Albert      | Binnet & Hardley      |
+| Albert      | New Moon Books        |
++-------------+-----------------------+
+182 rows in set (0.00 sec)
+
+mysql> SELECT a.au_lname AS "Author Last Name",p.pub_name AS "Publisher Name" FROM authors a, publisher p
+    -> WHERE a.city = p.city
+    -> ^C
+mysql> SELECT a.au_lname AS "Author Last Name",p.pub_name AS "Publisher Name" FROM authors a, publisher p
+    -> WHERE a.city != p.city;
++------------------+-----------------------+
+| Author Last Name | Publisher Name        |
++------------------+-----------------------+
+| White            | Lucerne Publishing    |
+| White            | Scootney Books        |
+| White            | GGG&G                 |
+| White            | Ramona Publishers     |
+| White            | Five Lakes Publishing |
+| White            | Algodata Infosystems  |
+| White            | Binnet & Hardley      |
+| White            | New Moon Books        |
+| Green            | Lucerne Publishing    |
+| Green            | Scootney Books        |
+| Green            | GGG&G                 |
+| Green            | Ramona Publishers     |
+| Green            | Five Lakes Publishing |
+| Green            | Algodata Infosystems  |
+| Green            | Binnet & Hardley      |
+| Green            | New Moon Books        |
+| Carson           | Lucerne Publishing    |
+| Carson           | Scootney Books        |
+| Carson           | GGG&G                 |
+| Carson           | Ramona Publishers     |
+| Carson           | Five Lakes Publishing |
+| Carson           | Binnet & Hardley      |
+| Carson           | New Moon Books        |
+| O'Leary          | Lucerne Publishing    |
+| O'Leary          | Scootney Books        |
+| O'Leary          | GGG&G                 |
+| O'Leary          | Ramona Publishers     |
+| O'Leary          | Five Lakes Publishing |
+| O'Leary          | Algodata Infosystems  |
+| O'Leary          | Binnet & Hardley      |
+| O'Leary          | New Moon Books        |
+| Straight         | Lucerne Publishing    |
+| Straight         | Scootney Books        |
+| Straight         | GGG&G                 |
+| Straight         | Ramona Publishers     |
+| Straight         | Five Lakes Publishing |
+| Straight         | Algodata Infosystems  |
+| Straight         | Binnet & Hardley      |
+| Straight         | New Moon Books        |
+| Smith            | Lucerne Publishing    |
+| Smith            | Scootney Books        |
+| Smith            | GGG&G                 |
+| Smith            | Ramona Publishers     |
+| Smith            | Five Lakes Publishing |
+| Smith            | Algodata Infosystems  |
+| Smith            | Binnet & Hardley      |
+| Smith            | New Moon Books        |
+| Bennet           | Lucerne Publishing    |
+| Bennet           | Scootney Books        |
+| Bennet           | GGG&G                 |
+| Bennet           | Ramona Publishers     |
+| Bennet           | Five Lakes Publishing |
+| Bennet           | Binnet & Hardley      |
+| Bennet           | New Moon Books        |
+| Dull             | Lucerne Publishing    |
+| Dull             | Scootney Books        |
+| Dull             | GGG&G                 |
+| Dull             | Ramona Publishers     |
+| Dull             | Five Lakes Publishing |
+| Dull             | Algodata Infosystems  |
+| Dull             | Binnet & Hardley      |
+| Dull             | New Moon Books        |
+| Gringlesby       | Lucerne Publishing    |
+| Gringlesby       | Scootney Books        |
+| Gringlesby       | GGG&G                 |
+| Gringlesby       | Ramona Publishers     |
+| Gringlesby       | Five Lakes Publishing |
+| Gringlesby       | Algodata Infosystems  |
+| Gringlesby       | Binnet & Hardley      |
+| Gringlesby       | New Moon Books        |
+| Locksley         | Lucerne Publishing    |
+| Locksley         | Scootney Books        |
+| Locksley         | GGG&G                 |
+| Locksley         | Ramona Publishers     |
+| Locksley         | Five Lakes Publishing |
+| Locksley         | Algodata Infosystems  |
+| Locksley         | Binnet & Hardley      |
+| Locksley         | New Moon Books        |
+| Greene           | Lucerne Publishing    |
+| Greene           | Scootney Books        |
+| Greene           | GGG&G                 |
+| Greene           | Ramona Publishers     |
+| Greene           | Five Lakes Publishing |
+| Greene           | Algodata Infosystems  |
+| Greene           | Binnet & Hardley      |
+| Greene           | New Moon Books        |
+| Blotchet-Halls   | Lucerne Publishing    |
+| Blotchet-Halls   | Scootney Books        |
+| Blotchet-Halls   | GGG&G                 |
+| Blotchet-Halls   | Ramona Publishers     |
+| Blotchet-Halls   | Five Lakes Publishing |
+| Blotchet-Halls   | Algodata Infosystems  |
+| Blotchet-Halls   | Binnet & Hardley      |
+| Blotchet-Halls   | New Moon Books        |
+| Yokomoto         | Lucerne Publishing    |
+| Yokomoto         | Scootney Books        |
+| Yokomoto         | GGG&G                 |
+| Yokomoto         | Ramona Publishers     |
+| Yokomoto         | Five Lakes Publishing |
+| Yokomoto         | Algodata Infosystems  |
+| Yokomoto         | Binnet & Hardley      |
+| Yokomoto         | New Moon Books        |
+| del Castillo     | Lucerne Publishing    |
+| del Castillo     | Scootney Books        |
+| del Castillo     | GGG&G                 |
+| del Castillo     | Ramona Publishers     |
+| del Castillo     | Five Lakes Publishing |
+| del Castillo     | Algodata Infosystems  |
+| del Castillo     | Binnet & Hardley      |
+| del Castillo     | New Moon Books        |
+| DeFrance         | Lucerne Publishing    |
+| DeFrance         | Scootney Books        |
+| DeFrance         | GGG&G                 |
+| DeFrance         | Ramona Publishers     |
+| DeFrance         | Five Lakes Publishing |
+| DeFrance         | Algodata Infosystems  |
+| DeFrance         | Binnet & Hardley      |
+| DeFrance         | New Moon Books        |
+| Stringer         | Lucerne Publishing    |
+| Stringer         | Scootney Books        |
+| Stringer         | GGG&G                 |
+| Stringer         | Ramona Publishers     |
+| Stringer         | Five Lakes Publishing |
+| Stringer         | Algodata Infosystems  |
+| Stringer         | Binnet & Hardley      |
+| Stringer         | New Moon Books        |
+| MacFeather       | Lucerne Publishing    |
+| MacFeather       | Scootney Books        |
+| MacFeather       | GGG&G                 |
+| MacFeather       | Ramona Publishers     |
+| MacFeather       | Five Lakes Publishing |
+| MacFeather       | Algodata Infosystems  |
+| MacFeather       | Binnet & Hardley      |
+| MacFeather       | New Moon Books        |
+| Karsen           | Lucerne Publishing    |
+| Karsen           | Scootney Books        |
+| Karsen           | GGG&G                 |
+| Karsen           | Ramona Publishers     |
+| Karsen           | Five Lakes Publishing |
+| Karsen           | Algodata Infosystems  |
+| Karsen           | Binnet & Hardley      |
+| Karsen           | New Moon Books        |
+| Panteley         | Lucerne Publishing    |
+| Panteley         | Scootney Books        |
+| Panteley         | GGG&G                 |
+| Panteley         | Ramona Publishers     |
+| Panteley         | Five Lakes Publishing |
+| Panteley         | Algodata Infosystems  |
+| Panteley         | Binnet & Hardley      |
+| Panteley         | New Moon Books        |
+| Hunter           | Lucerne Publishing    |
+| Hunter           | Scootney Books        |
+| Hunter           | GGG&G                 |
+| Hunter           | Ramona Publishers     |
+| Hunter           | Five Lakes Publishing |
+| Hunter           | Algodata Infosystems  |
+| Hunter           | Binnet & Hardley      |
+| Hunter           | New Moon Books        |
+| McBadden         | Lucerne Publishing    |
+| McBadden         | Scootney Books        |
+| McBadden         | GGG&G                 |
+| McBadden         | Ramona Publishers     |
+| McBadden         | Five Lakes Publishing |
+| McBadden         | Algodata Infosystems  |
+| McBadden         | Binnet & Hardley      |
+| McBadden         | New Moon Books        |
+| Ringer           | Lucerne Publishing    |
+| Ringer           | Scootney Books        |
+| Ringer           | GGG&G                 |
+| Ringer           | Ramona Publishers     |
+| Ringer           | Five Lakes Publishing |
+| Ringer           | Algodata Infosystems  |
+| Ringer           | Binnet & Hardley      |
+| Ringer           | New Moon Books        |
+| Ringer           | Lucerne Publishing    |
+| Ringer           | Scootney Books        |
+| Ringer           | GGG&G                 |
+| Ringer           | Ramona Publishers     |
+| Ringer           | Five Lakes Publishing |
+| Ringer           | Algodata Infosystems  |
+| Ringer           | Binnet & Hardley      |
+| Ringer           | New Moon Books        |
++------------------+-----------------------+
+182 rows in set (0.00 sec)
+
+mysql> SELECT a.au_fname AS "Author Name", p.pub_name AS "Publisher Name" FROM authors a, publisher p
+    -> WHERE a.city != p.city
+    -> GROUP BY au_fname;
++-------------+--------------------+
+| Author Name | Publisher Name     |
++-------------+--------------------+
+| Johnson     | Lucerne Publishing |
+| Marjorie    | Lucerne Publishing |
+| Cheryl      | Lucerne Publishing |
+| Michael     | Lucerne Publishing |
+| Dean        | Lucerne Publishing |
+| Meander     | Lucerne Publishing |
+| Abraham     | Lucerne Publishing |
+| Ann         | Lucerne Publishing |
+| Burt        | Lucerne Publishing |
+| Charlene    | Lucerne Publishing |
+| Morningstar | Lucerne Publishing |
+| Reginald    | Lucerne Publishing |
+| Akiko       | Lucerne Publishing |
+| Innes       | Lucerne Publishing |
+| Michel      | Lucerne Publishing |
+| Dirk        | Lucerne Publishing |
+| Stearns     | Lucerne Publishing |
+| Livia       | Lucerne Publishing |
+| Sylvia      | Lucerne Publishing |
+| Sheryl      | Lucerne Publishing |
+| Heather     | Lucerne Publishing |
+| Anne        | Lucerne Publishing |
+| Albert      | Lucerne Publishing |
++-------------+--------------------+
+23 rows in set (0.00 sec)
+
+mysql> DESC titles;
++-----------+---------------+------+-----+-----------+-------+
+| Field     | Type          | Null | Key | Default   | Extra |
++-----------+---------------+------+-----+-----------+-------+
+| title_id  | varchar(10)   | NO   | PRI | NULL      |       |
+| title     | varchar(80)   | NO   |     | NULL      |       |
+| type      | char(12)      | NO   |     | UNDECIDED |       |
+| pub_id    | char(4)       | YES  | MUL | NULL      |       |
+| price     | decimal(10,4) | YES  |     | NULL      |       |
+| advance   | decimal(10,4) | YES  |     | NULL      |       |
+| royalty   | int           | YES  |     | NULL      |       |
+| ytd_sales | int           | YES  |     | NULL      |       |
+| notes     | text          | YES  |     | NULL      |       |
+| pubdate   | date          | YES  |     | NULL      |       |
++-----------+---------------+------+-----+-----------+-------+
+10 rows in set (0.00 sec)
+
+mysql> DESC publisher;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| pub_id   | char(4)     | NO   | PRI | NULL    |       |
+| pub_name | varchar(40) | YES  |     | NULL    |       |
+| city     | varchar(40) | YES  |     | NULL    |       |
+| state    | char(2)     | YES  |     | NULL    |       |
+| country  | varchar(30) | YES  |     | USA     |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> ^C
+mysql> SELECT DISTINCT pub_id AS "PublisherId", DISTINCT pub_name AS "PublisherName", type AS "Category" FROM publisher,titles;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DISTINCT pub_name AS "PublisherName", type AS "Category" FROM publisher,titles' at line 1
+mysql> SELECT DISTINCT p.pub_id AS "PublisherId", DISTINCT p.pub_name AS "PublisherName", t.type AS "Category" FROM publisher p,titles t;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DISTINCT p.pub_name AS "PublisherName", t.type AS "Category" FROM publisher p,ti' at line 1
+mysql> SELECT DISTINCT pub_id, DISTINCT pub_name FROM publisher;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DISTINCT pub_name FROM publisher' at line 1
+mysql> SELECT DISTINCT pub_id,pub_name FROM publisher;
++--------+-----------------------+
+| pub_id | pub_name              |
++--------+-----------------------+
+| 0736   | New Moon Books        |
+| 0877   | Binnet & Hardley      |
+| 1389   | Algodata Infosystems  |
+| 1622   | Five Lakes Publishing |
+| 1756   | Ramona Publishers     |
+| 9901   | GGG&G                 |
+| 9952   | Scootney Books        |
+| 9999   | Lucerne Publishing    |
++--------+-----------------------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT pub_id,pub_name FROM publisher;
++--------+-----------------------+
+| pub_id | pub_name              |
++--------+-----------------------+
+| 0736   | New Moon Books        |
+| 0877   | Binnet & Hardley      |
+| 1389   | Algodata Infosystems  |
+| 1622   | Five Lakes Publishing |
+| 1756   | Ramona Publishers     |
+| 9901   | GGG&G                 |
+| 9952   | Scootney Books        |
+| 9999   | Lucerne Publishing    |
++--------+-----------------------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT * FROM titles;
++----------+-----------------------------------------------------------------+--------------+--------+---------+------------+---------+-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+
+| title_id | title                                                           | type         | pub_id | price   | advance    | royalty | ytd_sales | notes                                                                                                                                                                               | pubdate    |
++----------+-----------------------------------------------------------------+--------------+--------+---------+------------+---------+-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+
+| BU1032   | The Busy Executive's Database Guide                             | business     | 1389   | 19.9900 |  5000.0000 |      10 |      4095 | An overview of available database systems with emphasis on common business applications. Illustrated.                                                                               | 1991-06-12 |
+| BU1111   | Cooking with Computers: Surreptitious Balance Sheets            | business     | 1389   | 11.9500 |  5000.0000 |      10 |      3876 | Helpful hints on how to use your electronic resources to the best advantage.                                                                                                        | 1991-06-09 |
+| BU2075   | You Can Combat Computer Stress!                                 | business     | 0736   |  2.9900 | 10125.0000 |      24 |     18722 | The latest medical and psychological techniques for living with the electronic office. Easy-to-understand explanations.                                                             | 1991-06-30 |
+| BU7832   | Straight Talk About Computers                                   | business     | 1389   | 19.9900 |  5000.0000 |      10 |      4095 | Annotated analysis of what computers can do for you: a no-hype guide for the critical user.                                                                                         | 1991-06-22 |
+| MC2222   | Silicon Valley Gastronomic Treats                               | mod_cook     | 0877   | 19.9900 |     0.0000 |      12 |      2032 | Favorite recipes for quick, easy, and elegant meals.                                                                                                                                | 1991-06-09 |
+| MC3021   | The Gourmet Microwave                                           | mod_cook     | 0877   |  2.9900 | 15000.0000 |      24 |     22246 | Traditional French gourmet recipes adapted for modern microwave cooking.                                                                                                            | 1991-06-18 |
+| MC3026   | The Psychology of Computer Cooking                              | UNDECIDED    | 0877   |    NULL |       NULL |    NULL |      NULL | NULL                                                                                                                                                                                | NULL       |
+| PC1035   | But Is It User Friendly?                                        | popular_comp | 1389   | 22.9500 |  7000.0000 |      16 |      8780 | A survey of software for the naive user, focusing on the 'friendliness' of each.                                                                                                    | 1991-06-30 |
+| PC8888   | Secrets of Silicon Valley                                       | popular_comp | 1389   | 20.0000 |  8000.0000 |      10 |      4095 | Muckraking reporting on the world's largest computer hardware and software manufacturers.                                                                                           | 1994-06-12 |
+| PC9999   | Net Etiquette                                                   | popular_comp | 1389   |    NULL |       NULL |    NULL |      NULL | A must-read for computer conferencing.                                                                                                                                              | NULL       |
+| PS1372   | Computer Phobic AND Non-Phobic Individuals: Behavior Variations | psychology   | 0877   | 21.5900 |  7000.0000 |      10 |       375 | A must for the specialist, this book examines the difference between those who hate and fear computers and those who don't.                                                         | 1991-10-21 |
+| PS2091   | Is Anger the Enemy?                                             | psychology   | 0736   | 10.9500 |  2275.0000 |      12 |      2045 | Carefully researched study of the effects of strong emotions on the body. Metabolic charts included.                                                                                | 1991-06-15 |
+| PS2106   | Life Without Fear                                               | psychology   | 0736   |  7.0000 |  6000.0000 |      10 |       111 | New exercise, meditation, and nutritional techniques that can reduce the shock of daily interactions. Popular audience. Sample menus included, exercise video available separately. | 1991-10-05 |
+| PS3333   | Prolonged Data Deprivation: Four Case Studies                   | psychology   | 0736   | 19.9900 |  2000.0000 |      10 |      4072 | What happens when the data runs dry?  Searching evaluations of information-shortage effects.                                                                                        | 1991-06-12 |
+| PS7777   | Emotional Security: A New Algorithm                             | psychology   | 0736   |  7.9900 |  4000.0000 |      10 |      3336 | Protecting yourself and your loved ones from undue emotional stress in the modern world. Use of computer and nutritional aids emphasized.                                           | 1991-06-12 |
+| TC3218   | Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | trad_cook    | 0877   | 20.9500 |  7000.0000 |      10 |       375 | Profusely illustrated in color, this makes a wonderful gift book for a cuisine-oriented friend.                                                                                     | 1991-10-21 |
+| TC4203   | Fifty Years in Buckingham Palace Kitchens                       | trad_cook    | 0877   | 11.9500 |  4000.0000 |      14 |     15096 | More anecdotes from the Queen's favorite cook describing life among English royalty. Recipes, techniques, tender vignettes.                                                         | 1991-06-12 |
+| TC7777   | Sushi, Anyone?                                                  | trad_cook    | 0877   | 14.9900 |  8000.0000 |      10 |      4095 | Detailed instructions on how to make authentic Japanese sushi in your spare time.                                                                                                   | 1991-06-12 |
++----------+-----------------------------------------------------------------+--------------+--------+---------+------------+---------+-----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+
+18 rows in set (0.00 sec)
+
+mysql> SELECT DISTINCT type FROM titles;
++--------------+
+| type         |
++--------------+
+| business     |
+| mod_cook     |
+| UNDECIDED    |
+| popular_comp |
+| psychology   |
+| trad_cook    |
++--------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT type FROM titles;M 
++--------------+
+| type         |
++--------------+
+| business     |
+| business     |
+| business     |
+| business     |
+| mod_cook     |
+| mod_cook     |
+| UNDECIDED    |
+| popular_comp |
+| popular_comp |
+| popular_comp |
+| psychology   |
+| psychology   |
+| psychology   |
+| psychology   |
+| psychology   |
+| trad_cook    |
+| trad_cook    |
+| trad_cook    |
++--------------+
+18 rows in set (0.00 sec)
+
+    -> ^C
+mysql> SELECT DISTINCT p.pub_id AS "PublisherIdentity", p.pub_name AS "PublisherName", t.type FROM publisher p, titles t;
++-------------------+-----------------------+--------------+
+| PublisherIdentity | PublisherName         | type         |
++-------------------+-----------------------+--------------+
+| 9999              | Lucerne Publishing    | business     |
+| 9952              | Scootney Books        | business     |
+| 9901              | GGG&G                 | business     |
+| 1756              | Ramona Publishers     | business     |
+| 1622              | Five Lakes Publishing | business     |
+| 1389              | Algodata Infosystems  | business     |
+| 0877              | Binnet & Hardley      | business     |
+| 0736              | New Moon Books        | business     |
+| 9999              | Lucerne Publishing    | mod_cook     |
+| 9952              | Scootney Books        | mod_cook     |
+| 9901              | GGG&G                 | mod_cook     |
+| 1756              | Ramona Publishers     | mod_cook     |
+| 1622              | Five Lakes Publishing | mod_cook     |
+| 1389              | Algodata Infosystems  | mod_cook     |
+| 0877              | Binnet & Hardley      | mod_cook     |
+| 0736              | New Moon Books        | mod_cook     |
+| 9999              | Lucerne Publishing    | UNDECIDED    |
+| 9952              | Scootney Books        | UNDECIDED    |
+| 9901              | GGG&G                 | UNDECIDED    |
+| 1756              | Ramona Publishers     | UNDECIDED    |
+| 1622              | Five Lakes Publishing | UNDECIDED    |
+| 1389              | Algodata Infosystems  | UNDECIDED    |
+| 0877              | Binnet & Hardley      | UNDECIDED    |
+| 0736              | New Moon Books        | UNDECIDED    |
+| 9999              | Lucerne Publishing    | popular_comp |
+| 9952              | Scootney Books        | popular_comp |
+| 9901              | GGG&G                 | popular_comp |
+| 1756              | Ramona Publishers     | popular_comp |
+| 1622              | Five Lakes Publishing | popular_comp |
+| 1389              | Algodata Infosystems  | popular_comp |
+| 0877              | Binnet & Hardley      | popular_comp |
+| 0736              | New Moon Books        | popular_comp |
+| 9999              | Lucerne Publishing    | psychology   |
+| 9952              | Scootney Books        | psychology   |
+| 9901              | GGG&G                 | psychology   |
+| 1756              | Ramona Publishers     | psychology   |
+| 1622              | Five Lakes Publishing | psychology   |
+| 1389              | Algodata Infosystems  | psychology   |
+| 0877              | Binnet & Hardley      | psychology   |
+| 0736              | New Moon Books        | psychology   |
+| 9999              | Lucerne Publishing    | trad_cook    |
+| 9952              | Scootney Books        | trad_cook    |
+| 9901              | GGG&G                 | trad_cook    |
+| 1756              | Ramona Publishers     | trad_cook    |
+| 1622              | Five Lakes Publishing | trad_cook    |
+| 1389              | Algodata Infosystems  | trad_cook    |
+| 0877              | Binnet & Hardley      | trad_cook    |
+| 0736              | New Moon Books        | trad_cook    |
++-------------------+-----------------------+--------------+
+48 rows in set (0.00 sec)
+
+mysql> SELECT DISTINCT p.pub_id AS "PublisherIdentity", p.pub_name AS "PublisherName", t.type FROM publisher p, titles t
+    -> WHERE type = 'business'
+    -> GROUP BY type;
++-------------------+----------------+----------+
+| PublisherIdentity | PublisherName  | type     |
++-------------------+----------------+----------+
+| 0736              | New Moon Books | business |
++-------------------+----------------+----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DISTINCT p.pub_id AS "PublisherIdentity", p.pub_name AS "PublisherName", t.type FROM publisher p, titles t
+    -> WHERE type = 'business';
++-------------------+-----------------------+----------+
+| PublisherIdentity | PublisherName         | type     |
++-------------------+-----------------------+----------+
+| 0736              | New Moon Books        | business |
+| 0877              | Binnet & Hardley      | business |
+| 1389              | Algodata Infosystems  | business |
+| 1622              | Five Lakes Publishing | business |
+| 1756              | Ramona Publishers     | business |
+| 9901              | GGG&G                 | business |
+| 9952              | Scootney Books        | business |
+| 9999              | Lucerne Publishing    | business |
++-------------------+-----------------------+----------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT DISTINCT p.pub_id AS "PublisherIdentity" FROM publisherl
+    -> ^C
+mysql> SELECT DISTINCT p.pub_id AS "PublisherIdentity" FROM publisher;
+ERROR 1054 (42S22): Unknown column 'p.pub_id' in 'field list'
+mysql> SELECT DISTINCT pub_id AS "PublisherIdentity" FROM publisher;
++-------------------+
+| PublisherIdentity |
++-------------------+
+| 0736              |
+| 0877              |
+| 1389              |
+| 1622              |
+| 1756              |
+| 9901              |
+| 9952              |
+| 9999              |
++-------------------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT * FROM publisher;
++--------+-----------------------+------------+-------+---------+
+| pub_id | pub_name              | city       | state | country |
++--------+-----------------------+------------+-------+---------+
+| 0736   | New Moon Books        | Boston     | MA    | USA     |
+| 0877   | Binnet & Hardley      | Washington | DC    | USA     |
+| 1389   | Algodata Infosystems  | Berkeley   | CA    | USA     |
+| 1622   | Five Lakes Publishing | Chicago    | IL    | USA     |
+| 1756   | Ramona Publishers     | Dallas     | TX    | USA     |
+| 9901   | GGG&G                 | M?nchen    | NULL  | Germany |
+| 9952   | Scootney Books        | New York   | NY    | USA     |
+| 9999   | Lucerne Publishing    | Paris      | NULL  | France  |
++--------+-----------------------+------------+-------+---------+
+8 rows in set (0.00 sec)
+
+mysql> ELECT t.title, p.pub_name FROM titles t, publisher p
+    -> ^C
+mysql> ELECT t.title, p.pub_name FROM titles t, publisher p
+    -> ^C
+mysql> SELECT t.title, p.pub_name , t.type FROM titles t, publisher p ;
++-----------------------------------------------------------------+-----------------------+--------------+
+| title                                                           | pub_name              | type         |
++-----------------------------------------------------------------+-----------------------+--------------+
+| The Busy Executive's Database Guide                             | Lucerne Publishing    | business     |
+| The Busy Executive's Database Guide                             | Scootney Books        | business     |
+| The Busy Executive's Database Guide                             | GGG&G                 | business     |
+| The Busy Executive's Database Guide                             | Ramona Publishers     | business     |
+| The Busy Executive's Database Guide                             | Five Lakes Publishing | business     |
+| The Busy Executive's Database Guide                             | Algodata Infosystems  | business     |
+| The Busy Executive's Database Guide                             | Binnet & Hardley      | business     |
+| The Busy Executive's Database Guide                             | New Moon Books        | business     |
+| Cooking with Computers: Surreptitious Balance Sheets            | Lucerne Publishing    | business     |
+| Cooking with Computers: Surreptitious Balance Sheets            | Scootney Books        | business     |
+| Cooking with Computers: Surreptitious Balance Sheets            | GGG&G                 | business     |
+| Cooking with Computers: Surreptitious Balance Sheets            | Ramona Publishers     | business     |
+| Cooking with Computers: Surreptitious Balance Sheets            | Five Lakes Publishing | business     |
+| Cooking with Computers: Surreptitious Balance Sheets            | Algodata Infosystems  | business     |
+| Cooking with Computers: Surreptitious Balance Sheets            | Binnet & Hardley      | business     |
+| Cooking with Computers: Surreptitious Balance Sheets            | New Moon Books        | business     |
+| You Can Combat Computer Stress!                                 | Lucerne Publishing    | business     |
+| You Can Combat Computer Stress!                                 | Scootney Books        | business     |
+| You Can Combat Computer Stress!                                 | GGG&G                 | business     |
+| You Can Combat Computer Stress!                                 | Ramona Publishers     | business     |
+| You Can Combat Computer Stress!                                 | Five Lakes Publishing | business     |
+| You Can Combat Computer Stress!                                 | Algodata Infosystems  | business     |
+| You Can Combat Computer Stress!                                 | Binnet & Hardley      | business     |
+| You Can Combat Computer Stress!                                 | New Moon Books        | business     |
+| Straight Talk About Computers                                   | Lucerne Publishing    | business     |
+| Straight Talk About Computers                                   | Scootney Books        | business     |
+| Straight Talk About Computers                                   | GGG&G                 | business     |
+| Straight Talk About Computers                                   | Ramona Publishers     | business     |
+| Straight Talk About Computers                                   | Five Lakes Publishing | business     |
+| Straight Talk About Computers                                   | Algodata Infosystems  | business     |
+| Straight Talk About Computers                                   | Binnet & Hardley      | business     |
+| Straight Talk About Computers                                   | New Moon Books        | business     |
+| Silicon Valley Gastronomic Treats                               | Lucerne Publishing    | mod_cook     |
+| Silicon Valley Gastronomic Treats                               | Scootney Books        | mod_cook     |
+| Silicon Valley Gastronomic Treats                               | GGG&G                 | mod_cook     |
+| Silicon Valley Gastronomic Treats                               | Ramona Publishers     | mod_cook     |
+| Silicon Valley Gastronomic Treats                               | Five Lakes Publishing | mod_cook     |
+| Silicon Valley Gastronomic Treats                               | Algodata Infosystems  | mod_cook     |
+| Silicon Valley Gastronomic Treats                               | Binnet & Hardley      | mod_cook     |
+| Silicon Valley Gastronomic Treats                               | New Moon Books        | mod_cook     |
+| The Gourmet Microwave                                           | Lucerne Publishing    | mod_cook     |
+| The Gourmet Microwave                                           | Scootney Books        | mod_cook     |
+| The Gourmet Microwave                                           | GGG&G                 | mod_cook     |
+| The Gourmet Microwave                                           | Ramona Publishers     | mod_cook     |
+| The Gourmet Microwave                                           | Five Lakes Publishing | mod_cook     |
+| The Gourmet Microwave                                           | Algodata Infosystems  | mod_cook     |
+| The Gourmet Microwave                                           | Binnet & Hardley      | mod_cook     |
+| The Gourmet Microwave                                           | New Moon Books        | mod_cook     |
+| The Psychology of Computer Cooking                              | Lucerne Publishing    | UNDECIDED    |
+| The Psychology of Computer Cooking                              | Scootney Books        | UNDECIDED    |
+| The Psychology of Computer Cooking                              | GGG&G                 | UNDECIDED    |
+| The Psychology of Computer Cooking                              | Ramona Publishers     | UNDECIDED    |
+| The Psychology of Computer Cooking                              | Five Lakes Publishing | UNDECIDED    |
+| The Psychology of Computer Cooking                              | Algodata Infosystems  | UNDECIDED    |
+| The Psychology of Computer Cooking                              | Binnet & Hardley      | UNDECIDED    |
+| The Psychology of Computer Cooking                              | New Moon Books        | UNDECIDED    |
+| But Is It User Friendly?                                        | Lucerne Publishing    | popular_comp |
+| But Is It User Friendly?                                        | Scootney Books        | popular_comp |
+| But Is It User Friendly?                                        | GGG&G                 | popular_comp |
+| But Is It User Friendly?                                        | Ramona Publishers     | popular_comp |
+| But Is It User Friendly?                                        | Five Lakes Publishing | popular_comp |
+| But Is It User Friendly?                                        | Algodata Infosystems  | popular_comp |
+| But Is It User Friendly?                                        | Binnet & Hardley      | popular_comp |
+| But Is It User Friendly?                                        | New Moon Books        | popular_comp |
+| Secrets of Silicon Valley                                       | Lucerne Publishing    | popular_comp |
+| Secrets of Silicon Valley                                       | Scootney Books        | popular_comp |
+| Secrets of Silicon Valley                                       | GGG&G                 | popular_comp |
+| Secrets of Silicon Valley                                       | Ramona Publishers     | popular_comp |
+| Secrets of Silicon Valley                                       | Five Lakes Publishing | popular_comp |
+| Secrets of Silicon Valley                                       | Algodata Infosystems  | popular_comp |
+| Secrets of Silicon Valley                                       | Binnet & Hardley      | popular_comp |
+| Secrets of Silicon Valley                                       | New Moon Books        | popular_comp |
+| Net Etiquette                                                   | Lucerne Publishing    | popular_comp |
+| Net Etiquette                                                   | Scootney Books        | popular_comp |
+| Net Etiquette                                                   | GGG&G                 | popular_comp |
+| Net Etiquette                                                   | Ramona Publishers     | popular_comp |
+| Net Etiquette                                                   | Five Lakes Publishing | popular_comp |
+| Net Etiquette                                                   | Algodata Infosystems  | popular_comp |
+| Net Etiquette                                                   | Binnet & Hardley      | popular_comp |
+| Net Etiquette                                                   | New Moon Books        | popular_comp |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Lucerne Publishing    | psychology   |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Scootney Books        | psychology   |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | GGG&G                 | psychology   |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Ramona Publishers     | psychology   |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Five Lakes Publishing | psychology   |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Algodata Infosystems  | psychology   |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Binnet & Hardley      | psychology   |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | New Moon Books        | psychology   |
+| Is Anger the Enemy?                                             | Lucerne Publishing    | psychology   |
+| Is Anger the Enemy?                                             | Scootney Books        | psychology   |
+| Is Anger the Enemy?                                             | GGG&G                 | psychology   |
+| Is Anger the Enemy?                                             | Ramona Publishers     | psychology   |
+| Is Anger the Enemy?                                             | Five Lakes Publishing | psychology   |
+| Is Anger the Enemy?                                             | Algodata Infosystems  | psychology   |
+| Is Anger the Enemy?                                             | Binnet & Hardley      | psychology   |
+| Is Anger the Enemy?                                             | New Moon Books        | psychology   |
+| Life Without Fear                                               | Lucerne Publishing    | psychology   |
+| Life Without Fear                                               | Scootney Books        | psychology   |
+| Life Without Fear                                               | GGG&G                 | psychology   |
+| Life Without Fear                                               | Ramona Publishers     | psychology   |
+| Life Without Fear                                               | Five Lakes Publishing | psychology   |
+| Life Without Fear                                               | Algodata Infosystems  | psychology   |
+| Life Without Fear                                               | Binnet & Hardley      | psychology   |
+| Life Without Fear                                               | New Moon Books        | psychology   |
+| Prolonged Data Deprivation: Four Case Studies                   | Lucerne Publishing    | psychology   |
+| Prolonged Data Deprivation: Four Case Studies                   | Scootney Books        | psychology   |
+| Prolonged Data Deprivation: Four Case Studies                   | GGG&G                 | psychology   |
+| Prolonged Data Deprivation: Four Case Studies                   | Ramona Publishers     | psychology   |
+| Prolonged Data Deprivation: Four Case Studies                   | Five Lakes Publishing | psychology   |
+| Prolonged Data Deprivation: Four Case Studies                   | Algodata Infosystems  | psychology   |
+| Prolonged Data Deprivation: Four Case Studies                   | Binnet & Hardley      | psychology   |
+| Prolonged Data Deprivation: Four Case Studies                   | New Moon Books        | psychology   |
+| Emotional Security: A New Algorithm                             | Lucerne Publishing    | psychology   |
+| Emotional Security: A New Algorithm                             | Scootney Books        | psychology   |
+| Emotional Security: A New Algorithm                             | GGG&G                 | psychology   |
+| Emotional Security: A New Algorithm                             | Ramona Publishers     | psychology   |
+| Emotional Security: A New Algorithm                             | Five Lakes Publishing | psychology   |
+| Emotional Security: A New Algorithm                             | Algodata Infosystems  | psychology   |
+| Emotional Security: A New Algorithm                             | Binnet & Hardley      | psychology   |
+| Emotional Security: A New Algorithm                             | New Moon Books        | psychology   |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Lucerne Publishing    | trad_cook    |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Scootney Books        | trad_cook    |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | GGG&G                 | trad_cook    |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Ramona Publishers     | trad_cook    |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Five Lakes Publishing | trad_cook    |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Algodata Infosystems  | trad_cook    |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Binnet & Hardley      | trad_cook    |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | New Moon Books        | trad_cook    |
+| Fifty Years in Buckingham Palace Kitchens                       | Lucerne Publishing    | trad_cook    |
+| Fifty Years in Buckingham Palace Kitchens                       | Scootney Books        | trad_cook    |
+| Fifty Years in Buckingham Palace Kitchens                       | GGG&G                 | trad_cook    |
+| Fifty Years in Buckingham Palace Kitchens                       | Ramona Publishers     | trad_cook    |
+| Fifty Years in Buckingham Palace Kitchens                       | Five Lakes Publishing | trad_cook    |
+| Fifty Years in Buckingham Palace Kitchens                       | Algodata Infosystems  | trad_cook    |
+| Fifty Years in Buckingham Palace Kitchens                       | Binnet & Hardley      | trad_cook    |
+| Fifty Years in Buckingham Palace Kitchens                       | New Moon Books        | trad_cook    |
+| Sushi, Anyone?                                                  | Lucerne Publishing    | trad_cook    |
+| Sushi, Anyone?                                                  | Scootney Books        | trad_cook    |
+| Sushi, Anyone?                                                  | GGG&G                 | trad_cook    |
+| Sushi, Anyone?                                                  | Ramona Publishers     | trad_cook    |
+| Sushi, Anyone?                                                  | Five Lakes Publishing | trad_cook    |
+| Sushi, Anyone?                                                  | Algodata Infosystems  | trad_cook    |
+| Sushi, Anyone?                                                  | Binnet & Hardley      | trad_cook    |
+| Sushi, Anyone?                                                  | New Moon Books        | trad_cook    |
++-----------------------------------------------------------------+-----------------------+--------------+
+144 rows in set (0.00 sec)
+
+mysql> SELECT t.title, p.pub_name , t.type FROM titles t, publisher p 
+    -> WHERE t.pub_id = p.pub_id;
++-----------------------------------------------------------------+----------------------+--------------+
+| title                                                           | pub_name             | type         |
++-----------------------------------------------------------------+----------------------+--------------+
+| The Busy Executive's Database Guide                             | Algodata Infosystems | business     |
+| Cooking with Computers: Surreptitious Balance Sheets            | Algodata Infosystems | business     |
+| You Can Combat Computer Stress!                                 | New Moon Books       | business     |
+| Straight Talk About Computers                                   | Algodata Infosystems | business     |
+| Silicon Valley Gastronomic Treats                               | Binnet & Hardley     | mod_cook     |
+| The Gourmet Microwave                                           | Binnet & Hardley     | mod_cook     |
+| The Psychology of Computer Cooking                              | Binnet & Hardley     | UNDECIDED    |
+| But Is It User Friendly?                                        | Algodata Infosystems | popular_comp |
+| Secrets of Silicon Valley                                       | Algodata Infosystems | popular_comp |
+| Net Etiquette                                                   | Algodata Infosystems | popular_comp |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Binnet & Hardley     | psychology   |
+| Is Anger the Enemy?                                             | New Moon Books       | psychology   |
+| Life Without Fear                                               | New Moon Books       | psychology   |
+| Prolonged Data Deprivation: Four Case Studies                   | New Moon Books       | psychology   |
+| Emotional Security: A New Algorithm                             | New Moon Books       | psychology   |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Binnet & Hardley     | trad_cook    |
+| Fifty Years in Buckingham Palace Kitchens                       | Binnet & Hardley     | trad_cook    |
+| Sushi, Anyone?                                                  | Binnet & Hardley     | trad_cook    |
++-----------------------------------------------------------------+----------------------+--------------+
+18 rows in set (0.00 sec)
+
+mysql> SELECT t.title, p.pub_name , t.type FROM titles t, publisher p ;
++-----------------------------------------------------------------+-----------------------+--------------+
+| title                                                           | pub_name              | type         |
++-----------------------------------------------------------------+-----------------------+--------------+
+| The Busy Executive's Database Guide                             | Lucerne Publishing    | business     |
+| The Busy Executive's Database Guide                             | Scootney Books        | business     |
+| The Busy Executive's Database Guide                             | GGG&G                 | business     |
+| The Busy Executive's Database Guide                             | Ramona Publishers     | business     |
+| The Busy Executive's Database Guide                             | Five Lakes Publishing | business     |
+| The Busy Executive's Database Guide                             | Algodata Infosystems  | business     |
+| The Busy Executive's Database Guide                             | Binnet & Hardley      | business     |
+| The Busy Executive's Database Guide                             | New Moon Books        | business     |
+| Cooking with Computers: Surreptitious Balance Sheets            | Lucerne Publishing    | business     |
+| Cooking with Computers: Surreptitious Balance Sheets            | Scootney Books        | business     |
+| Cooking with Computers: Surreptitious Balance Sheets            | GGG&G                 | business     |
+| Cooking with Computers: Surreptitious Balance Sheets            | Ramona Publishers     | business     |
+| Cooking with Computers: Surreptitious Balance Sheets            | Five Lakes Publishing | business     |
+| Cooking with Computers: Surreptitious Balance Sheets            | Algodata Infosystems  | business     |
+| Cooking with Computers: Surreptitious Balance Sheets            | Binnet & Hardley      | business     |
+| Cooking with Computers: Surreptitious Balance Sheets            | New Moon Books        | business     |
+| You Can Combat Computer Stress!                                 | Lucerne Publishing    | business     |
+| You Can Combat Computer Stress!                                 | Scootney Books        | business     |
+| You Can Combat Computer Stress!                                 | GGG&G                 | business     |
+| You Can Combat Computer Stress!                                 | Ramona Publishers     | business     |
+| You Can Combat Computer Stress!                                 | Five Lakes Publishing | business     |
+| You Can Combat Computer Stress!                                 | Algodata Infosystems  | business     |
+| You Can Combat Computer Stress!                                 | Binnet & Hardley      | business     |
+| You Can Combat Computer Stress!                                 | New Moon Books        | business     |
+| Straight Talk About Computers                                   | Lucerne Publishing    | business     |
+| Straight Talk About Computers                                   | Scootney Books        | business     |
+| Straight Talk About Computers                                   | GGG&G                 | business     |
+| Straight Talk About Computers                                   | Ramona Publishers     | business     |
+| Straight Talk About Computers                                   | Five Lakes Publishing | business     |
+| Straight Talk About Computers                                   | Algodata Infosystems  | business     |
+| Straight Talk About Computers                                   | Binnet & Hardley      | business     |
+| Straight Talk About Computers                                   | New Moon Books        | business     |
+| Silicon Valley Gastronomic Treats                               | Lucerne Publishing    | mod_cook     |
+| Silicon Valley Gastronomic Treats                               | Scootney Books        | mod_cook     |
+| Silicon Valley Gastronomic Treats                               | GGG&G                 | mod_cook     |
+| Silicon Valley Gastronomic Treats                               | Ramona Publishers     | mod_cook     |
+| Silicon Valley Gastronomic Treats                               | Five Lakes Publishing | mod_cook     |
+| Silicon Valley Gastronomic Treats                               | Algodata Infosystems  | mod_cook     |
+| Silicon Valley Gastronomic Treats                               | Binnet & Hardley      | mod_cook     |
+| Silicon Valley Gastronomic Treats                               | New Moon Books        | mod_cook     |
+| The Gourmet Microwave                                           | Lucerne Publishing    | mod_cook     |
+| The Gourmet Microwave                                           | Scootney Books        | mod_cook     |
+| The Gourmet Microwave                                           | GGG&G                 | mod_cook     |
+| The Gourmet Microwave                                           | Ramona Publishers     | mod_cook     |
+| The Gourmet Microwave                                           | Five Lakes Publishing | mod_cook     |
+| The Gourmet Microwave                                           | Algodata Infosystems  | mod_cook     |
+| The Gourmet Microwave                                           | Binnet & Hardley      | mod_cook     |
+| The Gourmet Microwave                                           | New Moon Books        | mod_cook     |
+| The Psychology of Computer Cooking                              | Lucerne Publishing    | UNDECIDED    |
+| The Psychology of Computer Cooking                              | Scootney Books        | UNDECIDED    |
+| The Psychology of Computer Cooking                              | GGG&G                 | UNDECIDED    |
+| The Psychology of Computer Cooking                              | Ramona Publishers     | UNDECIDED    |
+| The Psychology of Computer Cooking                              | Five Lakes Publishing | UNDECIDED    |
+| The Psychology of Computer Cooking                              | Algodata Infosystems  | UNDECIDED    |
+| The Psychology of Computer Cooking                              | Binnet & Hardley      | UNDECIDED    |
+| The Psychology of Computer Cooking                              | New Moon Books        | UNDECIDED    |
+| But Is It User Friendly?                                        | Lucerne Publishing    | popular_comp |
+| But Is It User Friendly?                                        | Scootney Books        | popular_comp |
+| But Is It User Friendly?                                        | GGG&G                 | popular_comp |
+| But Is It User Friendly?                                        | Ramona Publishers     | popular_comp |
+| But Is It User Friendly?                                        | Five Lakes Publishing | popular_comp |
+| But Is It User Friendly?                                        | Algodata Infosystems  | popular_comp |
+| But Is It User Friendly?                                        | Binnet & Hardley      | popular_comp |
+| But Is It User Friendly?                                        | New Moon Books        | popular_comp |
+| Secrets of Silicon Valley                                       | Lucerne Publishing    | popular_comp |
+| Secrets of Silicon Valley                                       | Scootney Books        | popular_comp |
+| Secrets of Silicon Valley                                       | GGG&G                 | popular_comp |
+| Secrets of Silicon Valley                                       | Ramona Publishers     | popular_comp |
+| Secrets of Silicon Valley                                       | Five Lakes Publishing | popular_comp |
+| Secrets of Silicon Valley                                       | Algodata Infosystems  | popular_comp |
+| Secrets of Silicon Valley                                       | Binnet & Hardley      | popular_comp |
+| Secrets of Silicon Valley                                       | New Moon Books        | popular_comp |
+| Net Etiquette                                                   | Lucerne Publishing    | popular_comp |
+| Net Etiquette                                                   | Scootney Books        | popular_comp |
+| Net Etiquette                                                   | GGG&G                 | popular_comp |
+| Net Etiquette                                                   | Ramona Publishers     | popular_comp |
+| Net Etiquette                                                   | Five Lakes Publishing | popular_comp |
+| Net Etiquette                                                   | Algodata Infosystems  | popular_comp |
+| Net Etiquette                                                   | Binnet & Hardley      | popular_comp |
+| Net Etiquette                                                   | New Moon Books        | popular_comp |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Lucerne Publishing    | psychology   |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Scootney Books        | psychology   |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | GGG&G                 | psychology   |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Ramona Publishers     | psychology   |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Five Lakes Publishing | psychology   |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Algodata Infosystems  | psychology   |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Binnet & Hardley      | psychology   |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | New Moon Books        | psychology   |
+| Is Anger the Enemy?                                             | Lucerne Publishing    | psychology   |
+| Is Anger the Enemy?                                             | Scootney Books        | psychology   |
+| Is Anger the Enemy?                                             | GGG&G                 | psychology   |
+| Is Anger the Enemy?                                             | Ramona Publishers     | psychology   |
+| Is Anger the Enemy?                                             | Five Lakes Publishing | psychology   |
+| Is Anger the Enemy?                                             | Algodata Infosystems  | psychology   |
+| Is Anger the Enemy?                                             | Binnet & Hardley      | psychology   |
+| Is Anger the Enemy?                                             | New Moon Books        | psychology   |
+| Life Without Fear                                               | Lucerne Publishing    | psychology   |
+| Life Without Fear                                               | Scootney Books        | psychology   |
+| Life Without Fear                                               | GGG&G                 | psychology   |
+| Life Without Fear                                               | Ramona Publishers     | psychology   |
+| Life Without Fear                                               | Five Lakes Publishing | psychology   |
+| Life Without Fear                                               | Algodata Infosystems  | psychology   |
+| Life Without Fear                                               | Binnet & Hardley      | psychology   |
+| Life Without Fear                                               | New Moon Books        | psychology   |
+| Prolonged Data Deprivation: Four Case Studies                   | Lucerne Publishing    | psychology   |
+| Prolonged Data Deprivation: Four Case Studies                   | Scootney Books        | psychology   |
+| Prolonged Data Deprivation: Four Case Studies                   | GGG&G                 | psychology   |
+| Prolonged Data Deprivation: Four Case Studies                   | Ramona Publishers     | psychology   |
+| Prolonged Data Deprivation: Four Case Studies                   | Five Lakes Publishing | psychology   |
+| Prolonged Data Deprivation: Four Case Studies                   | Algodata Infosystems  | psychology   |
+| Prolonged Data Deprivation: Four Case Studies                   | Binnet & Hardley      | psychology   |
+| Prolonged Data Deprivation: Four Case Studies                   | New Moon Books        | psychology   |
+| Emotional Security: A New Algorithm                             | Lucerne Publishing    | psychology   |
+| Emotional Security: A New Algorithm                             | Scootney Books        | psychology   |
+| Emotional Security: A New Algorithm                             | GGG&G                 | psychology   |
+| Emotional Security: A New Algorithm                             | Ramona Publishers     | psychology   |
+| Emotional Security: A New Algorithm                             | Five Lakes Publishing | psychology   |
+| Emotional Security: A New Algorithm                             | Algodata Infosystems  | psychology   |
+| Emotional Security: A New Algorithm                             | Binnet & Hardley      | psychology   |
+| Emotional Security: A New Algorithm                             | New Moon Books        | psychology   |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Lucerne Publishing    | trad_cook    |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Scootney Books        | trad_cook    |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | GGG&G                 | trad_cook    |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Ramona Publishers     | trad_cook    |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Five Lakes Publishing | trad_cook    |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Algodata Infosystems  | trad_cook    |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Binnet & Hardley      | trad_cook    |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | New Moon Books        | trad_cook    |
+| Fifty Years in Buckingham Palace Kitchens                       | Lucerne Publishing    | trad_cook    |
+| Fifty Years in Buckingham Palace Kitchens                       | Scootney Books        | trad_cook    |
+| Fifty Years in Buckingham Palace Kitchens                       | GGG&G                 | trad_cook    |
+| Fifty Years in Buckingham Palace Kitchens                       | Ramona Publishers     | trad_cook    |
+| Fifty Years in Buckingham Palace Kitchens                       | Five Lakes Publishing | trad_cook    |
+| Fifty Years in Buckingham Palace Kitchens                       | Algodata Infosystems  | trad_cook    |
+| Fifty Years in Buckingham Palace Kitchens                       | Binnet & Hardley      | trad_cook    |
+| Fifty Years in Buckingham Palace Kitchens                       | New Moon Books        | trad_cook    |
+| Sushi, Anyone?                                                  | Lucerne Publishing    | trad_cook    |
+| Sushi, Anyone?                                                  | Scootney Books        | trad_cook    |
+| Sushi, Anyone?                                                  | GGG&G                 | trad_cook    |
+| Sushi, Anyone?                                                  | Ramona Publishers     | trad_cook    |
+| Sushi, Anyone?                                                  | Five Lakes Publishing | trad_cook    |
+| Sushi, Anyone?                                                  | Algodata Infosystems  | trad_cook    |
+| Sushi, Anyone?                                                  | Binnet & Hardley      | trad_cook    |
+| Sushi, Anyone?                                                  | New Moon Books        | trad_cook    |
++-----------------------------------------------------------------+-----------------------+--------------+
+144 rows in set (0.00 sec)
+
+mysql> SELECT t.title, p.pub_name , t.type FROM titles t, publisher p 
+    -> WHERE t.pub_id = p.pub_id
+    -> GROUP BY type;
++-----------------------------------------------------------------+----------------------+--------------+
+| title                                                           | pub_name             | type         |
++-----------------------------------------------------------------+----------------------+--------------+
+| The Busy Executive's Database Guide                             | Algodata Infosystems | business     |
+| Silicon Valley Gastronomic Treats                               | Binnet & Hardley     | mod_cook     |
+| The Psychology of Computer Cooking                              | Binnet & Hardley     | UNDECIDED    |
+| But Is It User Friendly?                                        | Algodata Infosystems | popular_comp |
+| Computer Phobic AND Non-Phobic Individuals: Behavior Variations | Binnet & Hardley     | psychology   |
+| Onions, Leeks, and Garlic: Cooking Secrets of the Mediterranean | Binnet & Hardley     | trad_cook    |
++-----------------------------------------------------------------+----------------------+--------------+
+6 rows in set (0.00 sec)
+
+mysql> Terminal close -- exit!
